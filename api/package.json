@@ -1,4 +1,11 @@
 {
+  "name": "@odds-and-endpoints/api",
+  "version": "0.0.1",
+  "description": "API for the Odds and Endpoints project",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "private": true,
   "scripts": {
     "build": "nitro build",
@@ -8,6 +15,7 @@
     "lint:types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@odds-and-endpoints/types": "workspace:*",
     "nitro-cloudflare-dev": "^0.2.2",
     "nitropack": "latest",
     "typescript": "^5.8.3"

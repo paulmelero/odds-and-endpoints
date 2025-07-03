@@ -1,12 +1,4 @@
-type OddsInfo = {
-  value: number;
-  fraction: string;
-  source: string;
-  exampleEvent: string;
-  exampleDescription: string;
-  mantissaRest?: number;
-  related?: string[];
-};
+import type { OddsInfo } from '@odds-and-endpoints/types';
 
 type OneOrMany<T> = T | T[];
 

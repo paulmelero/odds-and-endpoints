@@ -1,0 +1,15 @@
+{
+  "name": "@odds-and-endpoints/types",
+  "version": "1.0.0",
+  "description": "Types for the Odds and Endpoints project",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

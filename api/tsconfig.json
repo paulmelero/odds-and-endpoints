@@ -4,9 +4,10 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@odds-and-endpoints/types": ["../types/src/index.ts"]
+    }
   },
-  "exclude": [
-    "node_modules",
-    ".output"
-  ],
+  "exclude": ["node_modules", ".output"]
 }
