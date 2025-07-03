@@ -4,6 +4,22 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
 
+  experimental: {
+    inlineRouteRules: true,
+    granularCachedData: true,
+  },
+
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+    preset: 'cloudflare_module',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',

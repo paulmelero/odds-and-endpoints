@@ -78,9 +78,15 @@ importers:
       '@odds-and-endpoints/types':
         specifier: workspace:*
         version: link:../types
+      nitro-cloudflare-dev:
+        specifier: ^0.2.2
+        version: 0.2.2
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.17
+      wrangler:
+        specifier: 4.13.2
+        version: 4.13.2
 
 packages:
 
