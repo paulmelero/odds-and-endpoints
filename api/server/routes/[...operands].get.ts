@@ -1,6 +1,6 @@
-import { SOURCE } from "~/constants/source";
-import { getOperandsFromParams } from "~/utils/getOperandsFromParams";
-import { isValidPath } from "~/utils/validatePath";
+import { SOURCE } from '~/constants/source';
+import { getOperandsFromParams } from '~/utils/getOperandsFromParams';
+import { isValidPath } from '~/utils/validatePath';
 
 /**
  * We expect the path to conform to the following formula:
@@ -34,7 +34,7 @@ export default defineEventHandler((event) => {
       statusCode: 400,
       body: {
         message:
-          "Invalid path. Please use the format /n/m (e.g. /2/5 for 5 × 10^-2)",
+          'Invalid path. Please use the format /n/m (e.g. /2/5 for 5 × 10⁻²)',
       },
     };
   }
@@ -47,7 +47,7 @@ export default defineEventHandler((event) => {
     return {
       statusCode: 404,
       body: {
-        message: "The odds were not in your favour. Please try again.",
+        message: 'The odds were not in your favour. Please try again.',
       },
     };
   }

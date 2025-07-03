@@ -4,6 +4,7 @@ export type OddsInfo = {
   source: string;
   exampleEvent: string;
   exampleDescription: string;
+  indexNotation: string;
   mantissaRest?: number;
   related?: string[];
 };

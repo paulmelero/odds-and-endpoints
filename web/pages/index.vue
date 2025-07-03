@@ -18,7 +18,7 @@
           <div class="mb-16">
             <SlotMachine
               :is-rolling="isRolling"
-              :current-odds="currentOdds"
+              :current-odds="currentIndexNotation"
               @roll="handleRoll"
             />
 
@@ -30,7 +30,7 @@
           </div>
 
           <!-- Search Bar -->
-          <SearchBar />
+          <!-- <SearchBar /> -->
         </div>
       </section>
 
@@ -322,7 +322,7 @@
               Know a quirky probability? Submit your odd fact and help build the
               world's most comprehensive database of rare events!
             </p>
-            <button class="btn-secondary">Submit an Odd Fact</button>
+            <button class="btn-secondary">Submit an Odd Fact (soon)</button>
           </div>
         </div>
       </section>
@@ -333,6 +333,7 @@
 </template>
 
 <script setup lang="ts">
+import type { OddsInfo } from '@odds-and-endpoints/types';
 import { ref, onMounted } from 'vue';
 
 // SEO Meta
@@ -349,85 +350,47 @@ useSeoMeta({
 
 // Reactive state
 const isRolling = ref(false);
-const currentOdds = ref('/5/6');
-const currentEvent = ref({
-  name: 'Lightning Strike in a lifetime in the US',
-  description:
-    'The odds of being struck by lightning in your lifetime are about 1 in 15,300.',
-  probability: '1 in 15,300',
-  scientificNotation: '6.53 × 10⁻⁵',
-  indexNotation: '/5/6',
-});
-
-// Example events for demonstration
-const exampleEvents = [
-  {
-    name: 'Lightning Strike in a lifetime in the US',
-    description:
-      'The odds of being struck by lightning in your lifetime are about 1 in 15,300.',
-    probability: '1 in 15,300',
-    scientificNotation: '6.53 × 10⁻⁵',
-    indexNotation: '/5/6',
-  },
-  {
-    name: 'Meteor Impact in Your Lifetime',
-    description:
-      'The probability of a significant meteor impact affecting Earth during your lifetime.',
-    probability: '1 in 700,000',
-    scientificNotation: '1.43 × 10⁻⁶',
-    indexNotation: '/6/1',
-  },
-  {
-    name: 'Being Born Left-Handed',
-    description: 'Approximately 10% of the population is left-handed.',
-    probability: '1 in 10',
-    scientificNotation: '1.0 × 10⁻¹',
-    indexNotation: '/1/1',
-  },
-  {
-    name: 'Winning the Lottery Jackpot',
-    description:
-      'The odds of winning a major lottery jackpot are astronomically low.',
-    probability: '1 in 300,000,000',
-    scientificNotation: '3.33 × 10⁻⁹',
-    indexNotation: '/9/3',
-  },
-  {
-    name: 'Finding a Four-Leaf Clover',
-    description:
-      'The probability of finding a four-leaf clover in a patch of shamrocks.',
-    probability: '1 in 10,000',
-    scientificNotation: '1.0 × 10⁻⁴',
-    indexNotation: '/4/1',
-  },
-];
 
 const handleRoll = () => {
   isRolling.value = true;
 
-  // Simulate slot machine rolling with multiple random changes
-  let rollCount = 0;
-  const maxRolls = 8;
-
-  const rollInterval = setInterval(() => {
-    rollCount++;
-
-    if (rollCount >= maxRolls) {
-      clearInterval(rollInterval);
-
-      // Final result - pick a random event
-      const randomEvent =
-        exampleEvents[Math.floor(Math.random() * exampleEvents.length)];
-      currentEvent.value = randomEvent;
-      currentOdds.value = randomEvent.indexNotation;
+  const randomIndex = Math.floor(Math.random() * (fullList.value?.length || 0));
+  $fetch<OddsInfo>(
+    '/api/events/' +
+      (fullList.value?.[randomIndex]?.indexNotation.replace(/^\//, '') || '5/6')
+  )
+    .then((event) => {
+      currentEvent.value = event;
+    })
+    .finally(() => {
       isRolling.value = false;
-    }
-  }, 250);
+    });
 };
 
-onMounted(() => {
-  // Initialize with first event
-  currentEvent.value = exampleEvents[0];
-  currentOdds.value = exampleEvents[0].indexNotation;
+const { data: fullList } = await useAsyncData<{ indexNotation: string }[]>(
+  'fullList',
+  () => {
+    return $fetch('/api/events');
+  },
+  {
+    transform: (data) => {
+      return Object.entries(data).map(([_, value]) => {
+        return {
+          indexNotation: Object.keys(value)[0],
+        };
+      });
+    },
+  }
+);
+
+const { data: currentEvent } = await useAsyncData<OddsInfo>(
+  'currentEvent',
+  () => {
+    return $fetch('/api/events/5/6');
+  }
+);
+
+const currentIndexNotation = computed(() => {
+  return currentEvent.value?.indexNotation || '...';
 });
 </script>
