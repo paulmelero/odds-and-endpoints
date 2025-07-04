@@ -3,35 +3,53 @@
     <AppHeader />
 
     <!-- Hero Section -->
-    <main class="pt-20">
-      <section class="container mx-auto px-4 py-16 text-center">
+    <main class="relative z-[1] isolate pt-20">
+      <section class="container mx-auto px-4 pb-16 overflow-hidden">
+        <div
+          class="after:absolute after:inset-0 after:bg-[url('~/assets/img/Gaussian_distribution.svg')] after:bg-cover after:bg-no-repeat after:bg-center after:opacity-5 after:grayscale after:z-[-1]"
+        />
         <div class="max-w-4xl mx-auto">
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Odds and End—Point—s
-          </h1>
-          <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            Discover life's rare chances — Search, explore, and learn the odds
-            of extraordinary events.
-          </p>
-
-          <!-- Slot Machine Section -->
-          <div class="mb-16">
-            <SlotMachine
-              :is-rolling="isRolling"
-              :current-odds="currentIndexNotation"
-              @roll="handleRoll"
-            />
-
-            <EventDisplay
-              v-if="currentEvent"
-              :event="currentEvent"
-              class="mt-8"
-            />
+          <div class="text-center">
+            <div class="my-5 md:my-10">
+              <span
+                class="text-sm inline-block text-gray-500 px-4 py-2 rounded-3xl border border-gray-400"
+              >
+                Applied Recreational Maths
+              </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Odds and End—Point—s
+            </h1>
+            <p
+              class="text-lg md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            >
+              Discover life's rare chances — Search, explore, and learn the odds
+              of extraordinary events.
+            </p>
           </div>
 
-          <!-- Search Bar -->
-          <!-- <SearchBar /> -->
+          <div class="text-center">
+            <!-- Slot Machine Section -->
+            <div class="mb-16">
+              <SlotMachine
+                :is-rolling="isRolling"
+                :current-odds="currentIndexNotation"
+                @roll="handleRoll"
+              />
+
+              <EventDisplay
+                v-if="currentEvent"
+                :event="currentEvent"
+                class="mt-8"
+              />
+            </div>
+          </div>
         </div>
+        <!-- <div class="max-w-4xl mx-auto"> -->
+        <!-- Search Bar -->
+
+        <!-- <SearchBar /> -->
+        <!-- </div> -->
       </section>
 
       <!-- What This Is Section -->
