@@ -4,47 +4,52 @@
     <div
       class="flex items-center space-x-4 p-8 bg-white rounded-2xl shadow-2xl border-4 border-blue-200"
     >
-      <NumberFlowGroup>
-        <div class="flex items-center">
-          <!-- Forward slash -->
-          <div
-            class="bg-white rounded-lg w-20 h-24 flex items-center justify-center"
-          >
-            <span class="text-6xl font-mono font-bold text-blue-600">/</span>
-          </div>
+      <ClientOnly>
+        <NumberFlowGroup>
+          <div class="flex items-center">
+            <!-- Forward slash -->
+            <div
+              class="bg-white rounded-lg w-20 h-24 flex items-center justify-center"
+            >
+              <span class="text-6xl font-mono font-bold text-blue-600">/</span>
+            </div>
 
-          <!-- First digit with NumberFlow animation -->
-          <div
-            class="bg-white rounded-lg shadow-md w-20 h-24 flex items-center justify-center border-2 border-blue-200"
-          >
-            <NumberFlow
-              :value="firstDigit"
-              :duration="800"
-              :delay="0"
-              class="text-6xl font-mono font-bold text-blue-600"
-            />
-          </div>
+            <!-- First digit with NumberFlow animation -->
+            <div
+              class="bg-white rounded-lg shadow-md w-20 h-24 flex items-center justify-center border-2 border-blue-200"
+            >
+              <NumberFlow
+                :value="firstDigit"
+                :duration="800"
+                :delay="0"
+                class="text-6xl font-mono font-bold text-blue-600"
+              />
+            </div>
 
-          <!-- Forward slash -->
-          <div
-            class="bg-white rounded-lg w-20 h-24 flex items-center justify-center"
-          >
-            <span class="text-6xl font-mono font-bold text-blue-600">/</span>
-          </div>
+            <!-- Forward slash -->
+            <div
+              class="bg-white rounded-lg w-20 h-24 flex items-center justify-center"
+            >
+              <span class="text-6xl font-mono font-bold text-blue-600">/</span>
+            </div>
 
-          <!-- Second digit with NumberFlow animation -->
-          <div
-            class="bg-white rounded-lg shadow-md w-20 h-24 flex items-center justify-center border-2 border-blue-200"
-          >
-            <NumberFlow
-              :value="secondDigit"
-              :duration="800"
-              :delay="200"
-              class="text-6xl font-mono font-bold text-blue-600"
-            />
+            <!-- Second digit with NumberFlow animation -->
+            <div
+              class="bg-white rounded-lg shadow-md w-20 h-24 flex items-center justify-center border-2 border-blue-200"
+            >
+              <NumberFlow
+                :value="secondDigit"
+                :duration="800"
+                :delay="200"
+                class="text-6xl font-mono font-bold text-blue-600"
+              />
+            </div>
           </div>
-        </div>
-      </NumberFlowGroup>
+        </NumberFlowGroup>
+        <template #fallback>
+          {{ currentOdds }}
+        </template>
+      </ClientOnly>
     </div>
 
     <!-- Roll Button -->
