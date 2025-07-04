@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@odds-and-endpoints/types": ["../types/src/index.ts"]
-    }
+    },
+    "types": ["@cloudflare/unenv-preset"]
   }
 }

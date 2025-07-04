@@ -18,7 +18,6 @@
   },
   "devDependencies": {
     "@odds-and-endpoints/types": "workspace:*",
-    "nitro-cloudflare-dev": "^0.2.2",
     "nitropack": "latest",
     "typescript": "^5.8.3"
   },

@@ -8,7 +8,8 @@ Odds and Endpoints UI
 corepack enable
 corepack prepare pnpm
 pnpm install
-pnpm dev
+pnpm build
+pnpm dev # using wrangler dev
 ```
 
 ### Server
