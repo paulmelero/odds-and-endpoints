@@ -4,9 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "wrangler dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "preview:wrangler": "npx wrangler --cwd ./ dev",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

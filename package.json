@@ -2,7 +2,9 @@
   "name": "odds-and-endpoints",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm --parallel --filter=web --filter=api dev"
+    "dev": "pnpm --parallel --filter=web --filter=api dev",
+    "build": "pnpm --parallel --filter=web --filter=api build",
+    "preview": "pnpm --parallel --filter=web --filter=api preview"
   },
   "author": "Paul Melero",
   "license": "MIT",

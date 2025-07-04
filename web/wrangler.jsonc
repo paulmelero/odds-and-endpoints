@@ -6,7 +6,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "odds-and-endpoints-web",
   "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-05-15",
+  "compatibility_date": "2025-04-24",
+  "compatibility_flags": ["nodejs_compat"],
 
   "observability": {
     "enabled": true
@@ -23,13 +24,6 @@
    * databases, object storage, AI inference, real-time communication and more.
    * https://developers.cloudflare.com/workers/runtime-apis/bindings/
    */
-  // "d1_databases": [
-  // {
-  //   "binding": "D1",
-  //   "database_name": "graficos_net_content",
-  //   "database_id": "faee6a30-19c0-4808-8d89-aee0c61f41ca"
-  // }
-  // ],
 
   /**
    * Environment Variables

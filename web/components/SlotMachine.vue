@@ -76,6 +76,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+// Needs to be wrapped in a ClientOnly!!
 import NumberFlow, { NumberFlowGroup } from '@number-flow/vue';
 
 interface Props {
