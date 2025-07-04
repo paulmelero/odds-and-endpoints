@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 
   const oddsApi = event.context.cloudflare.env.API;
 
-  const odds = await (await oddsApi.get(`/${operands}`)).json();
+  const odds = await (await oddsApi(`/${operands}`)).json();
 
   return odds;
 });
