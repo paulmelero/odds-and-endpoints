@@ -27,6 +27,11 @@ import { isValidPath } from '~/utils/validatePath';
  * Example: 5 × 10^-2 (0.05) can be represented with /2/5
  */
 export default defineEventHandler((event) => {
+  setHeaders(event, {
+    'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+    'CDN-Cache-Control': 'public, max-age=604800',
+  });
+
   const { operands } = getRouterParams(event);
 
   if (!isValidPath(operands)) {

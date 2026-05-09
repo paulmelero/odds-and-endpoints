@@ -1,6 +1,10 @@
 import { SOURCE } from '~/constants/source';
 
-export default defineEventHandler(() => {
+export default defineEventHandler((event) => {
+  setHeaders(event, {
+    'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+    'CDN-Cache-Control': 'public, max-age=604800',
+  });
   const list: {
     indexNotation: string;
     exampleEvent: string;

@@ -2,9 +2,9 @@
   <div class="flex flex-col items-center gap-6">
     <!-- Slot Machine Display -->
     <div
-      class="relative p-1 rounded-2xl"
-      :class="isRolling ? 'animate-glow-pulse' : ''"
-      :style="{ background: `linear-gradient(135deg, ${rarityColor}22, transparent, ${rarityColor}11)` }"
+      class="relative p-1 rounded-2xl conic-border"
+      :class="isRolling ? 'animate-glow-pulse conic-border--fast' : ''"
+      :style="{ '--rarity-color': rarityColor }"
     >
       <div
         class="flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-6 sm:py-8 bg-ink-900 rounded-xl border border-ink-600/30"
@@ -152,3 +152,34 @@ const handleRoll = () => {
   if (!props.isRolling) emit('roll');
 };
 </script>
+
+<style scoped>
+@property --conic-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.conic-border {
+  background: conic-gradient(
+    from var(--conic-angle),
+    transparent 0%,
+    color-mix(in srgb, var(--rarity-color) 50%, transparent) 10%,
+    transparent 20%,
+    transparent 50%,
+    color-mix(in srgb, var(--rarity-color) 50%, transparent) 60%,
+    transparent 70%
+  );
+  animation: conic-spin 15s linear infinite;
+}
+
+.conic-border--fast {
+  animation-duration: 1.5s;
+}
+
+@keyframes conic-spin {
+  to {
+    --conic-angle: 360deg;
+  }
+}
+</style>
