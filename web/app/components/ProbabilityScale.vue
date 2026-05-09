@@ -51,7 +51,7 @@
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          <linearGradient id="curveGrad" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id="curveGrad" gradientUnits="userSpaceOnUse" :x1="gradX1" y1="0" :x2="gradX2" y2="0">
             <stop offset="0%" stop-color="#4ade80" />
             <stop offset="30%" stop-color="#f59e0b" />
             <stop offset="60%" stop-color="#a855f7" />
@@ -228,6 +228,9 @@ const showScrollHint = ref(false);
 let hintTimer: ReturnType<typeof setTimeout> | null = null;
 
 const isZoomed = computed(() => viewMin.value > 0.1 || viewMax.value < MAX_EXP - 0.1);
+
+const gradX1 = computed(() => expToX(0));
+const gradX2 = computed(() => expToX(MAX_EXP));
 
 function expToX(exp: number): number {
   return PAD.l + ((exp - viewMin.value) / (viewMax.value - viewMin.value)) * PW;

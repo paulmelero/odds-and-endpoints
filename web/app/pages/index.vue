@@ -322,7 +322,7 @@
                 the world's most comprehensive database of rare events.
               </p>
               <a
-                href="https://github.com/nicored/odds-and-endpoints/issues/new?title=New+Odd+Fact&body=Event+name:%0AProbability:%0ASource+URL:%0ADescription:"
+                href="https://github.com/paulmelero/odds-and-endpoints/issues/new?title=New+Odd+Fact&body=Event+name:%0AProbability:%0ASource+URL:%0ADescription:"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
