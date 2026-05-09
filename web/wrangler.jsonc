@@ -6,11 +6,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "odds-and-endpoints-web",
   "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-04-24",
+  "compatibility_date": "2026-05-09",
   "compatibility_flags": ["nodejs_compat"],
 
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   /**
    * Smart Placement
@@ -41,7 +41,7 @@
    */
   "assets": {
     "binding": "ASSETS",
-    "directory": "./.output/public/"
+    "directory": "./.output/public/",
   },
 
   /**
@@ -51,7 +51,7 @@
   "services": [
     {
       "binding": "API",
-      "service": "odds-and-endpoints-api"
-    }
-  ]
+      "service": "odds-and-endpoints-api",
+    },
+  ],
 }
