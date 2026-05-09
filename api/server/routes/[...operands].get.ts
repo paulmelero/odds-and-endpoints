@@ -52,5 +52,5 @@ export default defineEventHandler((event) => {
     };
   }
 
-  return response;
+  return { ...response };
 });

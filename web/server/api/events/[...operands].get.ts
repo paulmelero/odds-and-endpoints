@@ -1,7 +1,9 @@
 export default defineEventHandler(async (event) => {
-  const { operands } = getRouterParams(event); // e.g. 5/6
+  const { operands } = getRouterParams(event);
 
-  // call API binding
-  const odds = await event.context.cloudflare.env.API(operands);
-  return odds;
+  const response = await event.context.cloudflare.env.API.fetch(
+    `https://api/${operands}`,
+  );
+
+  return response.json();
 });
