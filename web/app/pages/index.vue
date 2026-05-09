@@ -362,15 +362,6 @@ type EventSummary = {
   category?: string;
 };
 
-useSeoMeta({
-  title: 'Odds and End—Point—s',
-  ogTitle: 'Odds and End—Point—s',
-  description: 'Scientific notation made REST. Get a random fact from the API',
-  ogDescription:
-    'Scientific notation made REST. Get a random fact from the API',
-  twitterCard: 'summary_large_image',
-});
-
 const isRolling = ref(false);
 const rollError = ref<string | null>(null);
 const showAllEvents = ref(false);
