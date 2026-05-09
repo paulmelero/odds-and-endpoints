@@ -1,87 +1,62 @@
 <template>
   <header
-    class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
+    class="fixed w-full top-0 z-50 bg-ink-950/80 backdrop-blur-xl border-b border-ink-700/30"
   >
-    <nav class="container mx-auto px-4 py-4">
+    <nav class="container mx-auto px-4 py-3.5">
       <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-          <Logo />
-        </div>
+        <Logo />
 
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center gap-1">
           <a
-            href="#about"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
+            v-for="link in navLinks"
+            :key="link.href"
+            :href="link.href"
+            class="btn-ghost text-sm"
           >
-            About
-          </a>
-          <a
-            href="#explore"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            Explore
-          </a>
-          <a
-            href="#api"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            API
-          </a>
-          <a
-            href="#contribute"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            Contribute
+            {{ link.label }}
           </a>
         </div>
 
-        <!-- Mobile menu button -->
         <button
-          class="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          class="md:hidden p-2 rounded-lg text-ink-400 hover:text-ink-100 hover:bg-ink-800 transition-colors"
+          aria-label="Toggle navigation menu"
+          :aria-expanded="mobileMenuOpen"
           @click="toggleMobileMenu"
         >
           <svg
-            class="w-6 h-6"
+            class="w-5 h-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
             <path
+              v-if="!mobileMenuOpen"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"
-            ></path>
+            />
+            <path
+              v-else
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <div v-if="mobileMenuOpen" class="md:hidden mt-4 py-4 border-t">
-        <div class="flex flex-col space-y-4">
+      <div v-if="mobileMenuOpen" class="md:hidden mt-3 pt-3 border-t border-ink-700/30">
+        <div class="flex flex-col gap-1">
           <a
-            href="#"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
+            v-for="link in navLinks"
+            :key="link.href"
+            :href="link.href"
+            class="btn-ghost text-sm text-left"
+            @click="mobileMenuOpen = false"
           >
-            Explore
-          </a>
-          <a
-            href="#"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            API
-          </a>
-          <a
-            href="#"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            class="text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            Contribute
+            {{ link.label }}
           </a>
         </div>
       </div>
@@ -90,9 +65,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
 const mobileMenuOpen = ref(false);
+
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#explore', label: 'Explore' },
+  { href: '#api', label: 'API' },
+  { href: '#contribute', label: 'Contribute' },
+];
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;

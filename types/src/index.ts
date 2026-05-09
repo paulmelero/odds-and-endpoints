@@ -7,4 +7,5 @@ export type OddsInfo = {
   indexNotation: string;
   mantissaRest?: number;
   related?: string[];
+  category?: string;
 };

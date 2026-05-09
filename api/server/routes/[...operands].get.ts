@@ -52,5 +52,9 @@ export default defineEventHandler((event) => {
     };
   }
 
+  if (Array.isArray(response)) {
+    return response;
+  }
+
   return { ...response };
 });

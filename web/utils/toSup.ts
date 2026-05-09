@@ -1,26 +1,16 @@
-// Converts a value and mantissaRest to scientific notation string, e.g., '6.53 × 10⁻⁵'
-export function toSup(value: number, mantissaRest?: number): string {
+export function toSup(value: number, _mantissaRest?: number): string {
   if (typeof value !== 'number' || value === 0) return '0';
 
-  // Use mantissaRest if provided, otherwise use value
   let mantissa: number;
   let exponent: number;
 
-  if (typeof mantissaRest === 'number') {
-    // Count digits in mantissaRest
-    const mantissaStr = mantissaRest.toString();
-    mantissa = parseFloat(mantissaStr[0] + '.' + mantissaStr.slice(1));
-    exponent = -1 * (mantissaStr.length - 1);
+  const exp = value.toExponential();
+  const match = exp.match(/([\d.]+)e([-+]?\d+)/);
+  if (match) {
+    mantissa = parseFloat(match[1]);
+    exponent = parseInt(match[2], 10);
   } else {
-    // Use value to get mantissa and exponent
-    const exp = value.toExponential();
-    const match = exp.match(/([\d.]+)e([-+]?\d+)/);
-    if (match) {
-      mantissa = parseFloat(match[1]);
-      exponent = parseInt(match[2], 10);
-    } else {
-      return value.toString();
-    }
+    return value.toString();
   }
 
   // Convert exponent to superscript
