@@ -87,9 +87,8 @@
               </p>
             </div>
 
-            <LazyShowProbabilityScale
+            <ProbabilityScale
               v-if="fullList && fullList.length > 0"
-              hydrate-on-interaction="scroll"
               :events="fullList"
               :selected-notation="currentEvent?.indexNotation"
               @select="handleScaleSelect"
@@ -354,13 +353,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineLazyHydrationComponent } from '#imports';
 import type { OddsInfo } from '@odds-and-endpoints/types';
-
-const LazyShowProbabilityScale = defineLazyHydrationComponent(
-  'interaction',
-  () => import('../components/ProbabilityScale.vue'),
-);
 
 type EventSummary = {
   indexNotation: string;

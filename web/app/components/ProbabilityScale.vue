@@ -242,11 +242,7 @@ function curveValue(exp: number): number {
 }
 
 function expToY(exp: number): number {
-  const val = curveValue(exp);
-  const valAtMin = curveValue(viewMin.value);
-  const valAtMax = curveValue(viewMax.value);
-  const normalized = (val - valAtMax) / (valAtMin - valAtMax || 1);
-  return PAD.t + (1 - normalized) * PH;
+  return PAD.t + (1 - curveValue(exp)) * PH;
 }
 
 // Curve paths
