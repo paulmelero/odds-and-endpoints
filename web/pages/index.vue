@@ -107,7 +107,7 @@
                 id="about"
                 class="text-2xl md:text-3xl font-display font-bold text-ink-50 mb-3 scroll-mt-32"
               >
-                How It Works
+                How the API Works
               </h2>
               <p class="text-ink-400 text-sm max-w-lg mx-auto">
                 A REST-friendly notation system for indexing real-world

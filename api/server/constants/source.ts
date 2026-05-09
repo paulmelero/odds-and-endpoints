@@ -447,7 +447,7 @@ export const SOURCE = Object.freeze({
     1: {
       value: 1.24e-68,
       fraction: '1/52!',
-      indexNotation: '/68/80',
+      indexNotation: '/68/1',
       mantissaRest: 658,
       source: 'https://en.wikipedia.org/wiki/Shuffling#Randomization',
       exampleEvent: 'Shuffling a Deck Into the Same Order Twice',

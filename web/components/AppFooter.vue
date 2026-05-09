@@ -57,7 +57,7 @@
               <a
                 href="#about"
                 class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
-                >How It Works</a
+                >How the API Works</a
               >
             </li>
           </ul>

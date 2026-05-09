@@ -12,7 +12,10 @@
         <ClientOnly>
           <NumberFlowGroup>
             <div class="flex items-center gap-1 sm:gap-2">
-              <span class="text-4xl sm:text-6xl font-mono font-bold text-ink-500 select-none">/</span>
+              <span
+                class="text-4xl sm:text-6xl font-mono font-bold text-ink-500"
+                >/</span
+              >
 
               <div
                 class="w-14 sm:w-20 h-16 sm:h-24 rounded-lg flex items-center justify-center border border-ink-600/40 bg-ink-800/80"
@@ -26,7 +29,10 @@
                 />
               </div>
 
-              <span class="text-4xl sm:text-6xl font-mono font-bold text-ink-500 select-none">/</span>
+              <span
+                class="text-4xl sm:text-6xl font-mono font-bold text-ink-500"
+                >/</span
+              >
 
               <div
                 class="w-14 sm:w-20 h-16 sm:h-24 rounded-lg flex items-center justify-center border border-ink-600/40 bg-ink-800/80"
@@ -42,7 +48,34 @@
             </div>
           </NumberFlowGroup>
           <template #fallback>
-            <span class="text-4xl sm:text-6xl font-mono font-bold text-ember-400">{{ currentOdds }}</span>
+            <div class="flex items-center gap-1 sm:gap-2">
+              <span
+                class="text-4xl sm:text-6xl font-mono font-bold text-ink-500"
+                >/</span
+              >
+              <div
+                class="w-14 sm:w-20 h-16 sm:h-24 rounded-lg flex items-center justify-center border border-ink-600/40 bg-ink-800/80"
+              >
+                <span
+                  class="text-4xl sm:text-6xl font-mono font-bold"
+                  :style="{ color: rarityColor }"
+                  >{{ firstDigit }}</span
+                >
+              </div>
+              <span
+                class="text-4xl sm:text-6xl font-mono font-bold text-ink-500"
+                >/</span
+              >
+              <div
+                class="w-14 sm:w-20 h-16 sm:h-24 rounded-lg flex items-center justify-center border border-ink-600/40 bg-ink-800/80"
+              >
+                <span
+                  class="text-4xl sm:text-6xl font-mono font-bold"
+                  :style="{ color: rarityColor }"
+                  >{{ secondDigit }}</span
+                >
+              </div>
+            </div>
           </template>
         </ClientOnly>
       </div>
@@ -68,9 +101,11 @@
       @click="handleRoll"
       :disabled="isRolling"
       class="group relative px-8 py-3.5 rounded-xl font-semibold text-base transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
-      :class="isRolling
-        ? 'bg-ink-700 text-ink-400'
-        : 'bg-ember-500 hover:bg-ember-400 text-ink-950 hover:shadow-lg hover:shadow-ember-500/20'"
+      :class="
+        isRolling
+          ? 'bg-ink-700 text-ink-400'
+          : 'bg-ember-500 hover:bg-ember-400 text-ink-950 hover:shadow-lg hover:shadow-ember-500/20'
+      "
     >
       <span class="flex items-center gap-2">
         <svg
@@ -80,7 +115,12 @@
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          />
         </svg>
         <svg
           v-else
@@ -88,8 +128,19 @@
           fill="none"
           viewBox="0 0 24 24"
         >
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          />
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
         </svg>
         {{ isRolling ? 'Rolling...' : 'Roll the Odds' }}
       </span>
