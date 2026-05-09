@@ -31,8 +31,9 @@
             <p
               class="text-lg md:text-xl text-ink-400 mb-12 max-w-2xl mx-auto leading-relaxed"
             >
-              Discover life's rare chances &mdash; Search, explore, and learn
-              the odds of extraordinary events.
+              Scientific notation made REST. Get a random fact from the API
+              &mdash; Search, explore, and learn the odds of extraordinary
+              events.
             </p>
           </div>
 
@@ -242,7 +243,10 @@
         <div class="container mx-auto px-4">
           <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
             <!-- For Developers -->
-            <div id="api" class="card p-8 scroll-mt-32">
+            <div
+              id="api"
+              class="card p-8 scroll-mt-32 flex flex-col justify-between"
+            >
               <div
                 class="w-10 h-10 rounded-xl bg-ember-500/10 border border-ember-500/20 flex items-center justify-center mb-5"
               >
@@ -272,7 +276,7 @@
                 href="#about"
                 class="inline-flex items-center gap-2 text-sm font-medium text-ember-400 hover:text-ember-300 transition-colors"
               >
-                View API Docs
+                How does it work?
                 <svg
                   class="w-3.5 h-3.5"
                   fill="none"
@@ -290,7 +294,10 @@
             </div>
 
             <!-- Contribute -->
-            <div id="contribute" class="card p-8 scroll-mt-32">
+            <div
+              id="contribute"
+              class="card p-8 scroll-mt-32 flex flex-col justify-between"
+            >
               <div
                 class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5"
               >
@@ -363,12 +370,11 @@ type EventSummary = {
 };
 
 useSeoMeta({
-  title: "Odds and End—Point—s — Discover Life's Rare Chances",
-  ogTitle: "Odds and End—Point—s — Discover Life's Rare Chances",
-  description:
-    "Discover life's rare chances — Search, explore, and learn the odds of extraordinary events.",
+  title: 'Odds and End—Point—s',
+  ogTitle: 'Odds and End—Point—s',
+  description: 'Scientific notation made REST. Get a random fact from the API',
   ogDescription:
-    "Discover life's rare chances — Search, explore, and learn the odds of extraordinary events.",
+    'Scientific notation made REST. Get a random fact from the API',
   twitterCard: 'summary_large_image',
 });
 

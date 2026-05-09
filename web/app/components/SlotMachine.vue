@@ -92,8 +92,8 @@
           {{ rarityLabel }}
         </span>
       </div>
-      <span class="text-ink-600">|</span>
-      <span class="font-mono text-ink-300 text-sm">{{ currentOdds }}</span>
+      <span class="text-ink-600 text-xs">|</span>
+      <span class="font-mono text-ink-300 text-xs">{{ currentOdds }}</span>
     </div>
 
     <!-- Roll Button -->
