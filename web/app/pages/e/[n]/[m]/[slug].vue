@@ -3,6 +3,7 @@
     <dialog
       ref="dialogRef"
       class="fixed inset-0 z-50 bg-transparent p-4 m-0 w-full h-full max-w-full max-h-full grid place-items-center overflow-y-auto"
+      :open="!hydrated || undefined"
       @close="handleClose"
       @click.self="handleClose"
     >
@@ -265,16 +266,7 @@ const nextEvent = computed(() => {
 });
 
 const dialogRef = ref<HTMLDialogElement | null>(null);
-
-function openDialog() {
-  const el = dialogRef.value;
-  if (!el) return;
-  if (document.startViewTransition) {
-    document.startViewTransition(() => el.showModal());
-  } else {
-    el.showModal();
-  }
-}
+const hydrated = ref(false);
 
 function handleClose() {
   const el = dialogRef.value;
@@ -289,7 +281,17 @@ function handleClose() {
   }
 }
 
-onMounted(openDialog);
+onMounted(() => {
+  const el = dialogRef.value;
+  if (!el) return;
+  el.removeAttribute('open');
+  if (document.startViewTransition) {
+    document.startViewTransition(() => el.showModal());
+  } else {
+    el.showModal();
+  }
+  hydrated.value = true;
+});
 
 useSeoMeta({
   title: () => {
@@ -301,13 +303,18 @@ useSeoMeta({
 </script>
 
 <style scoped>
+dialog[open]:not(:modal) {
+  background: rgb(8 10 16 / 0.8);
+  backdrop-filter: blur(4px);
+}
+
 dialog::backdrop {
   background: rgb(8 10 16 / 0.8);
   backdrop-filter: blur(4px);
   animation: fade-in 0.2s ease-out;
 }
 
-dialog[open] .dialog-content {
+dialog:modal .dialog-content {
   animation: scale-in 0.25s ease-out;
 }
 
