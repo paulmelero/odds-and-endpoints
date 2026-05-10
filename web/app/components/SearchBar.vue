@@ -67,12 +67,7 @@
 </template>
 
 <script setup lang="ts">
-type EventSummary = {
-  indexNotation: string;
-  exampleEvent: string;
-  fraction: string;
-  category?: string;
-};
+import type { EventSummary } from '@odds-and-endpoints/types';
 
 const props = defineProps<{
   events: EventSummary[];

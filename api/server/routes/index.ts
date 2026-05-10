@@ -10,6 +10,7 @@ export default defineEventHandler((event) => {
     exampleEvent: string;
     fraction: string;
     category?: string;
+    slug: string;
   }[] = [];
 
   for (const n in SOURCE) {
@@ -25,6 +26,7 @@ export default defineEventHandler((event) => {
           exampleEvent: item.exampleEvent,
           fraction: item.fraction,
           category: item.category,
+          slug: item.slug,
         });
       }
     }

@@ -223,12 +223,8 @@
 </template>
 
 <script setup lang="ts">
-type EventSummary = {
-  indexNotation: string;
-  exampleEvent: string;
-  fraction: string;
-  category?: string;
-};
+import type { EventSummary } from '@odds-and-endpoints/types';
+import { CATEGORY_HEX_COLORS } from '../utils/categoryColors';
 
 const props = defineProps<{
   events: EventSummary[];
@@ -385,16 +381,7 @@ const axisTicks = computed(() => {
 });
 
 // Event dots
-const categoryColorMap: Record<string, string> = {
-  'human-biology': '#fb7185',
-  genetics: '#a78bfa',
-  games: '#fbbf24',
-  nature: '#34d399',
-  weather: '#38bdf8',
-  space: '#818cf8',
-  sports: '#fb923c',
-  'daily-life': '#2dd4bf',
-};
+const categoryColorMap = CATEGORY_HEX_COLORS;
 
 function rarityColor(exp: number): string {
   if (exp <= 2) return '#4ade80';

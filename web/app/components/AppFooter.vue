@@ -40,24 +40,24 @@
           </h3>
           <ul class="space-y-2">
             <li>
-              <a
-                href="#explore"
+              <NuxtLink
+                to="/e/1/1"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >Browse Events</a
+                >Browse Events</NuxtLink
               >
             </li>
             <li>
-              <a
-                href="#explore"
+              <NuxtLink
+                to="/#explore"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >Search Odds</a
+                >Search Odds</NuxtLink
               >
             </li>
             <li>
-              <a
-                href="#about"
+              <NuxtLink
+                to="/#about"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >How the API Works</a
+                >How the API Works</NuxtLink
               >
             </li>
           </ul>
@@ -71,24 +71,24 @@
           </h3>
           <ul class="space-y-2">
             <li>
-              <a
-                href="#api"
+              <NuxtLink
+                to="/#api"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >API Documentation</a
+                >API Documentation</NuxtLink
               >
             </li>
             <li>
-              <a
-                href="#contribute"
+              <NuxtLink
+                to="/#contribute"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >Contribute</a
+                >Contribute</NuxtLink
               >
             </li>
             <li>
-              <a
-                href="#about"
+              <NuxtLink
+                to="/#about"
                 class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
-                >About</a
+                >About</NuxtLink
               >
             </li>
           </ul>

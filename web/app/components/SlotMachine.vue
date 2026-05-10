@@ -98,6 +98,7 @@
 
     <!-- Roll Button -->
     <button
+      v-if="!props.hideRollButton"
       @click="handleRoll"
       :disabled="isRolling"
       class="group relative px-8 py-3.5 rounded-xl font-semibold text-base transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
@@ -154,6 +155,7 @@ import NumberFlow, { NumberFlowGroup } from '@number-flow/vue';
 interface Props {
   isRolling: boolean;
   currentOdds: string;
+  hideRollButton?: boolean;
 }
 
 const props = defineProps<Props>();

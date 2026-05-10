@@ -89,17 +89,50 @@
         View Source
       </a>
 
+      <NuxtLink
+        v-if="props.detailLink"
+        :to="props.detailLink"
+        class="inline-flex items-center gap-1.5 text-xs text-ember-400 hover:text-ember-300 transition-colors font-medium"
+      >
+        View full details
+        <svg
+          class="w-3 h-3"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </NuxtLink>
+
       <template v-if="props.event.related && props.event.related.length > 0">
         <span class="text-ink-600 text-xs">|</span>
         <span class="text-xs text-ink-500">Related:</span>
-        <button
-          v-for="rel in props.event.related"
-          :key="rel"
-          class="text-xs font-mono text-ink-300 hover:text-ember-400 px-2 py-0.5 rounded bg-ink-700/40 border border-ink-600/20 hover:border-ember-500/30 transition-all cursor-pointer"
-          @click="$emit('selectRelated', rel)"
-        >
-          {{ rel }}
-        </button>
+        <template v-if="props.linkRelated">
+          <NuxtLink
+            v-for="rel in props.event.related"
+            :key="rel"
+            :to="`/e${rel}`"
+            class="text-xs font-mono text-ink-300 hover:text-ember-400 px-2 py-0.5 rounded bg-ink-700/40 border border-ink-600/20 hover:border-ember-500/30 transition-all no-underline"
+          >
+            {{ rel }}
+          </NuxtLink>
+        </template>
+        <template v-else>
+          <button
+            v-for="rel in props.event.related"
+            :key="rel"
+            class="text-xs font-mono text-ink-300 hover:text-ember-400 px-2 py-0.5 rounded bg-ink-700/40 border border-ink-600/20 hover:border-ember-500/30 transition-all cursor-pointer"
+            @click="$emit('selectRelated', rel)"
+          >
+            {{ rel }}
+          </button>
+        </template>
       </template>
     </div>
   </div>
@@ -108,9 +141,12 @@
 <script setup lang="ts">
 import type { OddsInfo } from '@odds-and-endpoints/types';
 import { toSup } from '../utils/toSup';
+import { getCategoryBadgeClass } from '../utils/categoryColors';
 
 interface Props {
   event: OddsInfo;
+  detailLink?: string;
+  linkRelated?: boolean;
 }
 
 const props = defineProps<Props>();
@@ -123,21 +159,5 @@ const scientificNotation = computed(() =>
   toSup(props.event.value, props.event.mantissaRest),
 );
 
-const categoryStyles: Record<string, string> = {
-  'human-biology': 'bg-rose-500/15 text-rose-400 border border-rose-500/20',
-  genetics: 'bg-violet-500/15 text-violet-400 border border-violet-500/20',
-  games: 'bg-amber-500/15 text-amber-400 border border-amber-500/20',
-  nature: 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20',
-  weather: 'bg-sky-500/15 text-sky-400 border border-sky-500/20',
-  space: 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/20',
-  sports: 'bg-orange-500/15 text-orange-400 border border-orange-500/20',
-  'daily-life': 'bg-teal-500/15 text-teal-400 border border-teal-500/20',
-};
-
-const categoryClass = computed(() => {
-  return (
-    categoryStyles[props.event.category || ''] ||
-    'bg-ink-600/30 text-ink-300 border border-ink-500/20'
-  );
-});
+const categoryClass = computed(() => getCategoryBadgeClass(props.event.category));
 </script>

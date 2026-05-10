@@ -4,17 +4,19 @@
   >
     <nav class="container mx-auto px-4 py-3.5">
       <div class="flex items-center justify-between">
-        <Logo />
+        <NuxtLink to="/" class="no-underline">
+          <Logo />
+        </NuxtLink>
 
         <div class="hidden md:flex items-center gap-1">
-          <a
+          <NuxtLink
             v-for="link in navLinks"
             :key="link.href"
-            :href="link.href"
+            :to="link.href"
             class="btn-ghost text-sm"
           >
             {{ link.label }}
-          </a>
+          </NuxtLink>
         </div>
 
         <button
@@ -49,15 +51,15 @@
 
       <div v-if="mobileMenuOpen" class="md:hidden mt-3 pt-3 border-t border-ink-700/30">
         <div class="flex flex-col gap-1">
-          <a
+          <NuxtLink
             v-for="link in navLinks"
             :key="link.href"
-            :href="link.href"
+            :to="link.href"
             class="btn-ghost text-sm text-left"
             @click="mobileMenuOpen = false"
           >
             {{ link.label }}
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </nav>
@@ -68,10 +70,11 @@
 const mobileMenuOpen = ref(false);
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#explore', label: 'Explore' },
-  { href: '#api', label: 'API' },
-  { href: '#contribute', label: 'Contribute' },
+  { href: '/#about', label: 'About' },
+  { href: '/e/1/1', label: 'Browse' },
+  { href: '/#explore', label: 'Explore' },
+  { href: '/#api', label: 'API' },
+  { href: '/#contribute', label: 'Contribute' },
 ];
 
 const toggleMobileMenu = () => {

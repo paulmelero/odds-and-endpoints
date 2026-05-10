@@ -1,4 +1,5 @@
 export type OddsInfo = {
+  slug: string;
   value: number;
   fraction: string;
   source: string;
@@ -8,4 +9,12 @@ export type OddsInfo = {
   mantissaRest?: number;
   related?: string[];
   category?: string;
+};
+
+export type EventSummary = {
+  indexNotation: string;
+  exampleEvent: string;
+  fraction: string;
+  category?: string;
+  slug: string;
 };

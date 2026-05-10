@@ -4,6 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
 
+  experimental: {
+    viewTransition: true,
+  },
+
   nitro: {
     prerender: {
       autoSubfolderIndex: false,

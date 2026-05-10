@@ -1,10 +1,7 @@
 <template>
-  <div class="min-h-screen bg-ink-950 text-ink-100">
-    <AppHeader />
-
+  <div>
     <!-- Hero Section -->
-    <main class="relative z-[1] isolate pt-20">
-      <section class="relative container mx-auto px-4 pb-16 overflow-hidden">
+    <section class="relative container mx-auto px-4 pb-16 overflow-hidden">
         <!-- Background Grid + Glow -->
         <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
         <div
@@ -62,6 +59,7 @@
               <EventDisplay
                 v-if="currentEvent"
                 :event="currentEvent"
+                :detail-link="currentEvent ? '/e' + currentEvent.indexNotation : undefined"
                 class="mt-8"
                 @select-related="handleRelatedSelect"
               />
@@ -102,68 +100,9 @@
         </div>
       </section>
 
-      <!-- How It Works Section -->
-      <section class="py-16 border-t border-ink-800/50">
-        <div class="container mx-auto px-4">
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-              <h2
-                id="about"
-                class="text-2xl md:text-3xl font-display font-bold text-ink-50 mb-3 scroll-mt-32"
-              >
-                How the API Works
-              </h2>
-              <p class="text-ink-200 text-sm max-w-lg mx-auto">
-                A REST-friendly notation system for indexing real-world
-                probabilities.
-              </p>
-            </div>
+      <ApiSyntaxSection />
 
-            <div class="card p-6 sm:p-8 mb-10">
-              <div
-                class="text-xl sm:text-2xl font-mono text-ink-200 mb-4 text-center"
-              >
-                0.0000653 = 6.53 &times; 10&#x207B;&#x2075; =
-                <span class="text-ember-400 font-bold">/5/6</span>
-              </div>
-              <p
-                class="text-ink-200 text-sm text-center max-w-xl mx-auto leading-relaxed"
-              >
-                We encode each probability as
-                <code
-                  class="text-ember-400 bg-ink-800 px-1.5 py-0.5 rounded text-xs"
-                  >/n/m</code
-                >
-                where <strong class="text-ink-200">n</strong> is the negative
-                exponent and <strong class="text-ink-200">m</strong> is the
-                leading digit of the mantissa.
-              </p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div
-                v-for="feature in features"
-                :key="feature.title"
-                class="card p-5"
-              >
-                <div
-                  class="w-8 h-8 rounded-lg bg-ember-500/10 border border-ember-500/20 flex items-center justify-center mb-3"
-                >
-                  <span class="text-ember-400 text-sm">{{ feature.icon }}</span>
-                </div>
-                <h3 class="text-sm font-semibold text-ink-100 mb-1">
-                  {{ feature.title }}
-                </h3>
-                <p class="text-xs text-ink-200 leading-relaxed">
-                  {{ feature.desc }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Browse Events Section -->
+      <!-- Featured Events Section -->
       <section class="py-16 border-t border-ink-800/50">
         <div class="container mx-auto px-4">
           <div class="max-w-5xl mx-auto">
@@ -171,70 +110,64 @@
               <h2
                 class="text-2xl md:text-3xl font-display font-bold text-ink-50 mb-3"
               >
-                Browse All Events
+                Featured Odds
               </h2>
               <p class="text-ink-200 text-sm">
-                {{ fullList?.length || 0 }} probability entries across
-                {{ categoryCount }} categories.
+                Explore the full spectrum of probability.
               </p>
             </div>
 
-            <div
-              v-if="fullList && fullList.length > 0"
-              class="grid sm:grid-cols-2 md:grid-cols-3 gap-4"
-            >
-              <button
-                v-for="item in displayedEvents"
-                :key="item.indexNotation + item.exampleEvent"
-                class="card p-5 text-left hover:border-ink-500/50 transition-all duration-200 cursor-pointer group"
-                @click="selectEvent(item)"
+            <div class="grid sm:grid-cols-3 gap-4">
+              <NuxtLink
+                v-for="item in featuredEvents"
+                :key="item.path"
+                :to="item.path"
+                class="card p-5 text-left hover:border-ink-500/50 transition-all duration-200 group no-underline"
               >
                 <div class="flex items-center justify-between mb-3">
                   <span
                     class="text-[10px] font-semibold px-2 py-0.5 rounded-md uppercase tracking-wider"
-                    :class="categoryClass(item.category)"
+                    :class="getCategoryBadgeClass(item.category)"
                   >
-                    {{ item.category || 'general' }}
+                    {{ item.category }}
                   </span>
                   <span
                     class="text-xs font-mono text-ember-400 font-semibold group-hover:text-ember-300 transition-colors"
                   >
-                    {{ item.indexNotation }}
+                    {{ item.notation }}
                   </span>
                 </div>
                 <h3
                   class="text-sm font-semibold text-ink-100 mb-1 group-hover:text-ink-50 transition-colors"
                 >
-                  {{ item.exampleEvent }}
+                  {{ item.title }}
                 </h3>
                 <p class="text-xs text-ink-500">
                   {{ item.fraction }}
                 </p>
-              </button>
+              </NuxtLink>
             </div>
 
-            <div v-else class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <div
-                v-for="i in 9"
-                :key="i"
-                class="h-28 rounded-xl bg-ink-800/30 animate-pulse"
-              />
-            </div>
-
-            <div
-              v-if="fullList && fullList.length > 9"
-              class="text-center mt-8"
-            >
-              <button
-                class="px-6 py-2.5 rounded-xl text-sm font-medium border border-ink-600/30 text-ink-300 hover:text-ink-100 hover:border-ink-500/50 bg-ink-800/40 transition-all"
-                @click="showAllEvents = !showAllEvents"
+            <div class="text-center mt-8">
+              <NuxtLink
+                to="/e/1/1"
+                class="px-6 py-2.5 rounded-xl text-sm font-medium border border-ink-600/30 text-ink-300 hover:text-ink-100 hover:border-ink-500/50 bg-ink-800/40 transition-all inline-flex items-center gap-2 no-underline"
               >
-                {{
-                  showAllEvents
-                    ? 'Show Less'
-                    : `Show All ${fullList.length} Events`
-                }}
-              </button>
+                Browse All Events
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -349,25 +282,15 @@
           </div>
         </div>
       </section>
-    </main>
-
-    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { OddsInfo } from '@odds-and-endpoints/types';
-
-type EventSummary = {
-  indexNotation: string;
-  exampleEvent: string;
-  fraction: string;
-  category?: string;
-};
+import type { OddsInfo, EventSummary } from '@odds-and-endpoints/types';
+import { getCategoryBadgeClass } from '../utils/categoryColors';
 
 const isRolling = ref(false);
 const rollError = ref<string | null>(null);
-const showAllEvents = ref(false);
 
 const { data: fullList, error: listError } = await useAsyncData<EventSummary[]>(
   'fullList',
@@ -383,40 +306,30 @@ const currentIndexNotation = computed(() => {
   return currentEvent.value?.indexNotation || '...';
 });
 
-const categoryCount = computed(() => {
-  if (!fullList.value) return 0;
-  const cats = new Set(fullList.value.map((e) => e.category).filter(Boolean));
-  return cats.size;
-});
-
-const displayedEvents = computed(() => {
-  if (!fullList.value) return [];
-  if (showAllEvents.value) return fullList.value;
-  return fullList.value.slice(0, 9);
-});
-
-const features = [
+const featuredEvents = [
   {
-    icon: 'Σ',
-    title: 'Real Sources',
-    desc: 'Every probability backed by peer-reviewed papers, government data, or trusted institutions.',
+    path: '/e/1/5',
+    notation: '/1/5',
+    title: 'Fair Coin Toss',
+    fraction: '1/2',
+    category: 'games',
   },
   {
-    icon: 'λ',
-    title: 'REST Notation',
-    desc: 'Clean /n/m paths that encode scientific notation for easy exploration and API access.',
+    path: '/e/5/6',
+    notation: '/5/6',
+    title: 'Lightning Strike in a Lifetime',
+    fraction: '1/15300',
+    category: 'weather',
   },
   {
-    icon: '∞',
-    title: 'Wide Spectrum',
-    desc: 'From coin flips (10⁻¹) to cosmic coincidences (10⁻⁶⁸) — the full range of rarity.',
-  },
-  {
-    icon: '∑',
-    title: 'Open & Free',
-    desc: 'Community-powered database. Suggest new entries, build on the API, or fork the project.',
+    path: '/e/9/3',
+    notation: '/9/3',
+    title: 'Winning the Powerball Jackpot',
+    fraction: '1/300000000',
+    category: 'games',
   },
 ];
+
 
 const fetchEvent = (path: string): Promise<OddsInfo | OddsInfo[]> => {
   return $fetch<OddsInfo | OddsInfo[]>('/api/events/' + path);
@@ -433,7 +346,7 @@ const handleRoll = () => {
     return;
   }
 
-  const randomItem = list[Math.floor(Math.random() * list.length)];
+  const randomItem = list[Math.floor(Math.random() * list.length)]!;
   const path = randomItem.indexNotation.replace(/^\//, '');
 
   fetchEvent(path)
@@ -469,13 +382,8 @@ const selectEvent = (item: EventSummary) => {
     });
 };
 
-const handleSearchSelect = (item: EventSummary) => {
-  selectEvent(item);
-};
-
-const handleScaleSelect = (item: EventSummary) => {
-  selectEvent(item);
-};
+const handleSearchSelect = (item: EventSummary) => selectEvent(item);
+const handleScaleSelect = (item: EventSummary) => selectEvent(item);
 
 const handleRelatedSelect = (notation: string) => {
   const path = notation.replace(/^\//, '');
@@ -489,21 +397,4 @@ const handleRelatedSelect = (notation: string) => {
     });
 };
 
-const categoryColors: Record<string, string> = {
-  'human-biology': 'bg-rose-500/15 text-rose-400 border border-rose-500/20',
-  genetics: 'bg-violet-500/15 text-violet-400 border border-violet-500/20',
-  games: 'bg-amber-500/15 text-amber-400 border border-amber-500/20',
-  nature: 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20',
-  weather: 'bg-sky-500/15 text-sky-400 border border-sky-500/20',
-  space: 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/20',
-  sports: 'bg-orange-500/15 text-orange-400 border border-orange-500/20',
-  'daily-life': 'bg-teal-500/15 text-teal-400 border border-teal-500/20',
-};
-
-const categoryClass = (category?: string) => {
-  return (
-    categoryColors[category || ''] ||
-    'bg-ink-600/30 text-ink-300 border border-ink-500/20'
-  );
-};
 </script>

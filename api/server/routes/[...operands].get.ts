@@ -1,5 +1,6 @@
 import { SOURCE } from '~/constants/source';
 import { getOperandsFromParams } from '~/utils/getOperandsFromParams';
+import { getNavigation } from '~/utils/orderedIndex';
 import { isValidPath } from '~/utils/validatePath';
 
 /**
@@ -55,6 +56,16 @@ export default defineEventHandler((event) => {
         message: 'The odds were not in your favour. Please try again.',
       },
     };
+  }
+
+  const nav = getNavigation(n, m);
+  if (nav) {
+    const links: string[] = [];
+    links.push(`<${nav.first.path}>; rel="first"`);
+    if (nav.prev) links.push(`<${nav.prev.path}>; rel="prev"`);
+    if (nav.next) links.push(`<${nav.next.path}>; rel="next"`);
+    links.push(`<${nav.last.path}>; rel="last"`);
+    setResponseHeader(event, 'Link', links.join(', '));
   }
 
   if (Array.isArray(response)) {

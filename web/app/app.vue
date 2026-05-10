@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen">
+  <NuxtLayout>
     <NuxtRouteAnnouncer />
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">

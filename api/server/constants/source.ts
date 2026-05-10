@@ -4,6 +4,7 @@ export const SOURCE = Object.freeze({
   1: {
     1: [
       {
+        slug: 'born-left-handed',
         value: 0.1,
         fraction: '1/10',
         indexNotation: '/1/1',
@@ -14,6 +15,7 @@ export const SOURCE = Object.freeze({
         category: 'human-biology',
       },
       {
+        slug: 'rolling-specific-number-die',
         value: 1 / 6,
         fraction: '1/6',
         indexNotation: '/1/1',
@@ -26,6 +28,7 @@ export const SOURCE = Object.freeze({
       },
     ],
     2: {
+      slug: 'blood-type-a-worldwide',
       value: 0.27,
       fraction: '27/100',
       indexNotation: '/1/2',
@@ -37,6 +40,7 @@ export const SOURCE = Object.freeze({
       category: 'human-biology',
     },
     3: {
+      slug: 'rolling-under-3-die',
       value: 1 / 3,
       fraction: '1/3',
       indexNotation: '/1/3',
@@ -48,6 +52,7 @@ export const SOURCE = Object.freeze({
       category: 'games',
     },
     4: {
+      slug: 'blood-type-o-worldwide',
       value: 0.44,
       fraction: '44/100',
       indexNotation: '/1/4',
@@ -59,6 +64,7 @@ export const SOURCE = Object.freeze({
       category: 'human-biology',
     },
     5: {
+      slug: 'fair-coin-toss',
       value: 0.5,
       fraction: '1/2',
       indexNotation: '/1/5',
@@ -72,6 +78,7 @@ export const SOURCE = Object.freeze({
   2: {
     1: [
       {
+        slug: 'being-ambidextrous',
         value: 0.01,
         fraction: '1/100',
         indexNotation: '/2/1',
@@ -82,6 +89,7 @@ export const SOURCE = Object.freeze({
         category: 'human-biology',
       },
       {
+        slug: 'having-twins',
         value: 0.012,
         fraction: '~12/1000',
         indexNotation: '/2/1',
@@ -93,6 +101,7 @@ export const SOURCE = Object.freeze({
       },
     ],
     2: {
+      slug: 'born-red-hair',
       value: 0.02,
       fraction: '1/50',
       indexNotation: '/2/2',
@@ -103,6 +112,7 @@ export const SOURCE = Object.freeze({
       category: 'genetics',
     },
     4: {
+      slug: 'being-colorblind',
       value: 0.045,
       fraction: '9/200',
       indexNotation: '/2/4',
@@ -114,6 +124,7 @@ export const SOURCE = Object.freeze({
       category: 'genetics',
     },
     7: {
+      slug: 'white-christmas-london',
       value: 0.07,
       fraction: '7/100',
       indexNotation: '/2/7',
@@ -125,6 +136,7 @@ export const SOURCE = Object.freeze({
       category: 'weather',
     },
     8: {
+      slug: 'blue-eyes-worldwide',
       value: 0.085,
       fraction: '17/200',
       indexNotation: '/2/8',
@@ -137,6 +149,7 @@ export const SOURCE = Object.freeze({
   },
   3: {
     1: {
+      slug: 'born-cleft-lip-palate',
       value: 1 / 700,
       fraction: '1/700',
       indexNotation: '/3/1',
@@ -147,6 +160,7 @@ export const SOURCE = Object.freeze({
       category: 'human-biology',
     },
     2: {
+      slug: 'born-specific-date',
       value: 1 / 365,
       fraction: '1/365',
       indexNotation: '/3/2',
@@ -161,6 +175,7 @@ export const SOURCE = Object.freeze({
   4: {
     1: [
       {
+        slug: 'four-leaf-clover',
         value: 0.0001,
         fraction: '1/10000',
         mantissaRest: 1,
@@ -173,6 +188,7 @@ export const SOURCE = Object.freeze({
         category: 'nature',
       },
       {
+        slug: 'pearl-in-wild-oyster',
         value: 0.0001,
         fraction: '1/10000',
         indexNotation: '/4/1',
@@ -184,6 +200,7 @@ export const SOURCE = Object.freeze({
       },
     ],
     2: {
+      slug: 'meteor-impact-lifetime',
       value: 80 / 300000,
       fraction: '1/3750',
       indexNotation: '/4/2',
@@ -198,6 +215,7 @@ export const SOURCE = Object.freeze({
     },
     6: [
       {
+        slug: 'born-february-29',
         value: 1 / 1461,
         fraction: '1/1461',
         indexNotation: '/4/6',
@@ -209,6 +227,7 @@ export const SOURCE = Object.freeze({
         category: 'daily-life',
       },
       {
+        slug: 'complete-heterochromia',
         value: 6e-4,
         fraction: '6/10000',
         indexNotation: '/4/6',
@@ -220,6 +239,7 @@ export const SOURCE = Object.freeze({
       },
     ],
     8: {
+      slug: 'born-extra-finger',
       value: 8e-4,
       fraction: '8/10000',
       indexNotation: '/4/8',
@@ -232,6 +252,7 @@ export const SOURCE = Object.freeze({
   },
   5: {
     1: {
+      slug: 'flipping-16-heads',
       value: 1 / 65536,
       fraction: '1/65536',
       indexNotation: '/5/1',
@@ -243,6 +264,7 @@ export const SOURCE = Object.freeze({
       category: 'games',
     },
     3: {
+      slug: 'winning-oscar-sag-member',
       value: 3.2e-5,
       fraction: '~1/32000',
       indexNotation: '/5/3',
@@ -254,6 +276,7 @@ export const SOURCE = Object.freeze({
       category: 'daily-life',
     },
     5: {
+      slug: 'born-with-albinism',
       value: 5e-5,
       fraction: '1/20000',
       indexNotation: '/5/5',
@@ -264,6 +287,7 @@ export const SOURCE = Object.freeze({
       category: 'genetics',
     },
     6: {
+      slug: 'lightning-strike-lifetime-us',
       value: 0.00006535947712418301,
       fraction: '1/15300',
       indexNotation: '/5/6',
@@ -277,6 +301,7 @@ export const SOURCE = Object.freeze({
     },
     8: [
       {
+        slug: 'hole-in-one-golf',
         value: 8e-5,
         fraction: '1/12500',
         indexNotation: '/5/8',
@@ -287,6 +312,7 @@ export const SOURCE = Object.freeze({
         category: 'sports',
       },
       {
+        slug: 'perfect-300-bowling',
         value: 8.7e-5,
         fraction: '1/11500',
         indexNotation: '/5/8',
@@ -301,6 +327,7 @@ export const SOURCE = Object.freeze({
   6: {
     1: [
       {
+        slug: 'meteor-impact-yearly',
         value: 1.4285714285714286e-6,
         fraction: '1/700000',
         indexNotation: '/6/1',
@@ -313,6 +340,7 @@ export const SOURCE = Object.freeze({
         category: 'space',
       },
       {
+        slug: 'royal-flush-poker',
         value: 1.5390771693292702e-6,
         fraction: '1/649740',
         indexNotation: '/6/1',
@@ -327,6 +355,7 @@ export const SOURCE = Object.freeze({
   },
   7: {
     1: {
+      slug: 'becoming-us-president',
       value: 1.39e-7,
       fraction: '~46/330000000',
       indexNotation: '/7/1',
@@ -337,6 +366,7 @@ export const SOURCE = Object.freeze({
       category: 'daily-life',
     },
     2: {
+      slug: 'shark-attack-us-yearly',
       value: 2.4e-7,
       fraction: '~1/4200000',
       indexNotation: '/7/2',
@@ -348,6 +378,7 @@ export const SOURCE = Object.freeze({
       category: 'nature',
     },
     8: {
+      slug: 'lightning-strike-yearly-us',
       mantissaRest: 183306055646482,
       indexNotation: '/7/8',
       value: 8.183306055646482e-7,
@@ -362,6 +393,7 @@ export const SOURCE = Object.freeze({
   },
   8: {
     1: {
+      slug: 'winning-academy-award',
       value: 1.94e-8,
       fraction: '~5/258000000',
       indexNotation: '/8/1',
@@ -372,6 +404,7 @@ export const SOURCE = Object.freeze({
       category: 'daily-life',
     },
     8: {
+      slug: 'dying-plane-crash',
       value: 8.77e-8,
       fraction: '~1/11400000',
       indexNotation: '/8/8',
@@ -385,6 +418,7 @@ export const SOURCE = Object.freeze({
   9: {
     3: [
       {
+        slug: 'winning-powerball',
         value: 3.333333333333333e-9,
         indexNotation: '/9/3',
         fraction: '1/300000000',
@@ -395,6 +429,7 @@ export const SOURCE = Object.freeze({
         category: 'games',
       },
       {
+        slug: 'winning-mega-millions',
         value: 3.3e-9,
         indexNotation: '/9/3',
         fraction: '1/302575350',
@@ -407,6 +442,7 @@ export const SOURCE = Object.freeze({
       },
     ],
     7: {
+      slug: 'winning-euromillions',
       value: 7.15e-9,
       fraction: '1/139838160',
       mantissaRest: 112384201,
@@ -420,6 +456,7 @@ export const SOURCE = Object.freeze({
   },
   12: {
     1: {
+      slug: 'forensic-dna-match',
       value: 1e-12,
       fraction: '1/1000000000000',
       indexNotation: '/12/1',
@@ -433,6 +470,7 @@ export const SOURCE = Object.freeze({
   },
   24: {
     1: {
+      slug: 'guessing-24-digit-number',
       value: 1e-24,
       fraction: '1/10^24',
       indexNotation: '/24/1',
@@ -445,6 +483,7 @@ export const SOURCE = Object.freeze({
   },
   68: {
     1: {
+      slug: 'shuffling-deck-same-order',
       value: 1.24e-68,
       fraction: '1/52!',
       indexNotation: '/68/1',
