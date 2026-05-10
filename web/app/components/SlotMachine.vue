@@ -7,7 +7,8 @@
       :style="{ '--rarity-color': rarityColor }"
     >
       <div
-        class="flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-6 sm:py-8 bg-ink-900 rounded-xl border border-ink-600/30"
+        ref="slotMachineWrapperRef"
+        class="flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-6 sm:py-8 bg-ink-900 rounded-xl border border-ink-600/30 [scroll-margin-top:85px]"
       >
         <ClientOnly>
           <NumberFlowGroup>
@@ -160,6 +161,7 @@ interface Props {
 
 const props = defineProps<Props>();
 const emit = defineEmits<{ (event: 'roll'): void }>();
+const slotMachineWrapperRef = useTemplateRef('slotMachineWrapperRef');
 
 const animatedFirstDigit = ref(5);
 const animatedSecondDigit = ref(6);
@@ -167,7 +169,7 @@ const animatedSecondDigit = ref(6);
 const firstDigit = computed(() => {
   if (props.isRolling) return Math.floor(Math.random() * 10);
   const match = props.currentOdds.match(/\/(\d+)\//);
-  const target = match ? parseInt(match[1]) : 5;
+  const target = match ? parseInt(match[1] ?? '5', 10) : 5;
   if (animatedFirstDigit.value !== target) animatedFirstDigit.value = target;
   return animatedFirstDigit.value;
 });
@@ -175,14 +177,14 @@ const firstDigit = computed(() => {
 const secondDigit = computed(() => {
   if (props.isRolling) return Math.floor(Math.random() * 10);
   const match = props.currentOdds.match(/\/\d+\/(\d+)/);
-  const target = match ? parseInt(match[1]) : 6;
+  const target = match ? parseInt(match[1] ?? '6', 10) : 6;
   if (animatedSecondDigit.value !== target) animatedSecondDigit.value = target;
   return animatedSecondDigit.value;
 });
 
 const exponent = computed(() => {
   const match = props.currentOdds.match(/\/(\d+)\//);
-  return match ? parseInt(match[1]) : 1;
+  return match ? parseInt(match[1] ?? '1', 10) : 1;
 });
 
 const rarityColor = computed(() => {
@@ -201,9 +203,20 @@ const rarityLabel = computed(() => {
   return 'Near Impossible';
 });
 
+const timeoutId = ref<NodeJS.Timeout | null>(null);
 const handleRoll = () => {
   if (!props.isRolling) emit('roll');
+
+  timeoutId.value = setTimeout(() => {
+    slotMachineWrapperRef.value?.scrollIntoView({ behavior: 'smooth' });
+  }, 750);
 };
+
+onUnmounted(() => {
+  if (timeoutId.value) {
+    clearTimeout(timeoutId.value);
+  }
+});
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
     <section class="relative container mx-auto px-4 pt-8 pb-12">
       <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
       <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-ember-500/5 rounded-full blur-[128px] pointer-events-none"
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full md:w-[600px] h-full md:h-[600px] bg-ember-500/5 rounded-full blur-[128px] pointer-events-none"
       />
 
       <div class="relative max-w-4xl mx-auto text-center">

@@ -23,6 +23,8 @@
         <input
           id="search"
           v-model="searchQuery"
+          @keydown.enter="handleEnter"
+          @keydown.escape="handleEscape"
           type="text"
           class="block w-full pl-11 pr-4 py-3 bg-ink-800/60 border border-ink-600/30 rounded-xl text-ink-100 placeholder-ink-300 focus:outline-none focus:border-ember-500/50 focus:ring-1 focus:ring-ember-500/30 text-sm transition-colors"
           placeholder="Search events, odds, categories..."
@@ -39,7 +41,7 @@
     <!-- Results Dropdown -->
     <div
       v-if="searchQuery && searchQuery.length >= 2"
-      class="absolute top-full left-0 right-0 mt-2 bg-ink-800 border border-ink-600/30 rounded-xl shadow-2xl overflow-hidden z-40"
+      class="absolute top-full left-0 right-0 mt-2 bg-ink-800 border border-ink-600/30 rounded-xl shadow-2xl overflow-hidden z-40 max-w-2xl mx-auto shadow-ember-500/10"
     >
       <div v-if="searchResults.length > 0" class="max-h-64 overflow-y-auto">
         <button
@@ -94,6 +96,16 @@ const searchResults = computed(() => {
 
 const selectResult = (result: EventSummary) => {
   emit('select', result);
+  searchQuery.value = '';
+};
+
+const handleEnter = () => {
+  if (searchResults.value.length === 1) {
+    selectResult(searchResults.value[0]!);
+  }
+};
+
+const handleEscape = () => {
   searchQuery.value = '';
 };
 </script>
