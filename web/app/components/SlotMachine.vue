@@ -88,7 +88,7 @@
           class="w-2 h-2 rounded-full"
           :style="{ backgroundColor: rarityColor }"
         />
-        <span class="text-ink-400 font-mono text-xs tracking-wide uppercase">
+        <span class="text-ink-300 font-mono text-xs tracking-wide uppercase">
           {{ rarityLabel }}
         </span>
       </div>

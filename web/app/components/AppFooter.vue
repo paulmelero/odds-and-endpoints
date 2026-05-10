@@ -4,14 +4,14 @@
       <div class="grid md:grid-cols-4 gap-8 mb-10">
         <div class="md:col-span-2">
           <Logo dark />
-          <p class="text-ink-500 mt-4 mb-6 max-w-sm text-sm leading-relaxed">
+          <p class="text-ink-300 mt-4 mb-6 max-w-sm text-sm leading-relaxed">
             Exploring life's improbabilities through the lens of mathematics.
             Every entry backed by real sources.
           </p>
           <div class="flex gap-3">
             <!-- <a
               href="#"
-              class="w-9 h-9 rounded-lg bg-ink-800 border border-ink-700/30 flex items-center justify-center text-ink-400 hover:text-ember-400 hover:border-ember-500/30 transition-all"
+              class="w-9 h-9 rounded-lg bg-ink-800 border border-ink-700/30 flex items-center justify-center text-ink-200 hover:text-ember-400 hover:border-ember-500/30 transition-all"
               aria-label="Twitter"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -20,7 +20,7 @@
             </a> -->
             <a
               href="https://github.com/paulmelero/odds-and-endpoints"
-              class="w-9 h-9 rounded-lg bg-ink-800 border border-ink-700/30 flex items-center justify-center text-ink-400 hover:text-ember-400 hover:border-ember-500/30 transition-all"
+              class="w-9 h-9 rounded-lg bg-ink-800 border border-ink-700/30 flex items-center justify-center text-ink-200 hover:text-ember-400 hover:border-ember-500/30 transition-all"
               aria-label="GitHub"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -42,21 +42,21 @@
             <li>
               <a
                 href="#explore"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >Browse Events</a
               >
             </li>
             <li>
               <a
                 href="#explore"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >Search Odds</a
               >
             </li>
             <li>
               <a
                 href="#about"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >How the API Works</a
               >
             </li>
@@ -73,21 +73,21 @@
             <li>
               <a
                 href="#api"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >API Documentation</a
               >
             </li>
             <li>
               <a
                 href="#contribute"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >Contribute</a
               >
             </li>
             <li>
               <a
                 href="#about"
-                class="text-sm text-ink-500 hover:text-ember-400 transition-colors"
+                class="text-sm text-ink-300 hover:text-ember-400 transition-colors"
                 >About</a
               >
             </li>
@@ -96,7 +96,7 @@
       </div>
 
       <div
-        class="border-t border-ink-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-600"
+        class="border-t border-ink-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-300"
       >
         <p>&copy; {{ new Date().getFullYear() }} Odds and End—Point—s</p>
         <p>Built with curiosity and scientific rigor.</p>

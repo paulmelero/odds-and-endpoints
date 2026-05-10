@@ -8,7 +8,7 @@
       >
         {{ props.event.category || 'general' }}
       </span>
-      <span class="font-mono text-sm text-ink-400">
+      <span class="font-mono text-sm text-ink-200">
         {{ props.event.indexNotation }}
       </span>
     </div>
@@ -23,36 +23,68 @@
       <span
         class="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1.5 rounded-md bg-ink-700/60 text-ink-200 border border-ink-600/30"
       >
-        <svg class="w-3 h-3 text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+        <svg
+          class="w-3 h-3 text-ink-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+          />
         </svg>
         {{ props.event.fraction }}
       </span>
       <span
         class="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1.5 rounded-md bg-ink-700/60 text-ink-200 border border-ink-600/30"
       >
-        <svg class="w-3 h-3 text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        <svg
+          class="w-3 h-3 text-ink-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+          />
         </svg>
         {{ scientificNotation }}
       </span>
     </div>
 
     <!-- Description -->
-    <p class="text-sm sm:text-base text-ink-300 leading-relaxed mb-5">
+    <p class="text-sm sm:text-base text-ink-100 leading-relaxed mb-5">
       {{ props.event.exampleDescription }}
     </p>
 
     <!-- Footer: Source + Related -->
-    <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-ink-600/20">
+    <div
+      class="flex flex-wrap items-center gap-3 pt-4 border-t border-ink-600/20"
+    >
       <a
         :href="props.event.source"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 text-xs text-ember-400 hover:text-ember-300 transition-colors font-medium"
       >
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
         </svg>
         View Source
       </a>
@@ -103,6 +135,9 @@ const categoryStyles: Record<string, string> = {
 };
 
 const categoryClass = computed(() => {
-  return categoryStyles[props.event.category || ''] || 'bg-ink-600/30 text-ink-300 border border-ink-500/20';
+  return (
+    categoryStyles[props.event.category || ''] ||
+    'bg-ink-600/30 text-ink-300 border border-ink-500/20'
+  );
 });
 </script>

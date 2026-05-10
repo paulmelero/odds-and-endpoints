@@ -21,15 +21,18 @@
               </span>
             </div>
             <h1
-              class="text-4xl md:text-6xl font-display font-bold text-ink-50 mb-6"
+              class="text-xl sm:text-4xl md:text-6xl font-display font-bold text-ink-50 mb-6 flex flex-col sm:flex-row sm:justify-center"
             >
-              Odds and End<span class="text-ember-400">&mdash;</span>Point<span
-                class="text-ember-400"
-                >&mdash;</span
-              >s
+              <span>Odds and&nbsp;</span>
+              <span
+                >End<span class="text-ember-400">&mdash;</span>Point<span
+                  class="text-ember-400"
+                  >&mdash;</span
+                >s</span
+              >
             </h1>
             <p
-              class="text-lg md:text-xl text-ink-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+              class="text-lg md:text-xl text-ink-200 mb-12 max-w-2xl mx-auto leading-relaxed"
             >
               Scientific notation made REST. Get a random fact from the API
               &mdash; Search, explore, and learn the odds of extraordinary
@@ -81,7 +84,7 @@
               >
                 The Probability Spectrum
               </h2>
-              <p class="text-ink-400 text-sm max-w-lg mx-auto">
+              <p class="text-ink-200 text-sm max-w-lg mx-auto">
                 From coin flips to cosmic coincidences &mdash; every event
                 mapped on a logarithmic scale.
               </p>
@@ -110,7 +113,7 @@
               >
                 How the API Works
               </h2>
-              <p class="text-ink-400 text-sm max-w-lg mx-auto">
+              <p class="text-ink-200 text-sm max-w-lg mx-auto">
                 A REST-friendly notation system for indexing real-world
                 probabilities.
               </p>
@@ -124,7 +127,7 @@
                 <span class="text-ember-400 font-bold">/5/6</span>
               </div>
               <p
-                class="text-ink-400 text-sm text-center max-w-xl mx-auto leading-relaxed"
+                class="text-ink-200 text-sm text-center max-w-xl mx-auto leading-relaxed"
               >
                 We encode each probability as
                 <code
@@ -151,7 +154,7 @@
                 <h3 class="text-sm font-semibold text-ink-100 mb-1">
                   {{ feature.title }}
                 </h3>
-                <p class="text-xs text-ink-500 leading-relaxed">
+                <p class="text-xs text-ink-200 leading-relaxed">
                   {{ feature.desc }}
                 </p>
               </div>
@@ -170,7 +173,7 @@
               >
                 Browse All Events
               </h2>
-              <p class="text-ink-400 text-sm">
+              <p class="text-ink-200 text-sm">
                 {{ fullList?.length || 0 }} probability entries across
                 {{ categoryCount }} categories.
               </p>
@@ -266,7 +269,7 @@
               <h3 class="text-xl font-display font-bold text-ink-50 mb-3">
                 For Developers
               </h3>
-              <p class="text-sm text-ink-400 mb-6 leading-relaxed">
+              <p class="text-sm text-ink-200 mb-6 leading-relaxed">
                 Our open API lets you explore rare event probabilities
                 programmatically &mdash; perfect for students, educators, or
                 playful projects.
@@ -317,7 +320,7 @@
               <h3 class="text-xl font-display font-bold text-ink-50 mb-3">
                 Contribute
               </h3>
-              <p class="text-sm text-ink-400 mb-6 leading-relaxed">
+              <p class="text-sm text-ink-200 mb-6 leading-relaxed">
                 Know a quirky probability? Submit your odd fact and help build
                 the world's most comprehensive database of rare events.
               </p>

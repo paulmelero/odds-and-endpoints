@@ -2,7 +2,7 @@
   <div class="w-full">
     <!-- Scale Header -->
     <div class="flex items-center justify-between mb-4 px-1">
-      <div class="flex items-center gap-3 text-xs text-ink-400">
+      <div class="flex items-center gap-3 text-xs text-ink-200">
         <span class="flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-rare-common" /> Common
         </span>
@@ -18,20 +18,26 @@
       </div>
       <div class="flex items-center gap-2">
         <button
-          class="w-7 h-7 rounded-md bg-ink-800 border border-ink-700/40 text-ink-400 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-sm font-mono flex items-center justify-center"
+          class="w-7 h-7 rounded-md bg-ink-800 border border-ink-700/40 text-ink-200 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-sm font-mono flex items-center justify-center"
           :disabled="!isZoomed"
           :class="{ 'opacity-30 cursor-not-allowed': !isZoomed }"
           @click="zoomOut"
-        >-</button>
+        >
+          -
+        </button>
         <button
           v-if="isZoomed"
-          class="h-7 px-2 rounded-md bg-ink-800 border border-ink-700/40 text-ink-400 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-[10px] font-mono flex items-center justify-center"
+          class="h-7 px-2 rounded-md bg-ink-800 border border-ink-700/40 text-ink-200 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-[10px] font-mono flex items-center justify-center"
           @click="resetZoom"
-        >Reset</button>
+        >
+          Reset
+        </button>
         <button
-          class="w-7 h-7 rounded-md bg-ink-800 border border-ink-700/40 text-ink-400 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-sm font-mono flex items-center justify-center"
+          class="w-7 h-7 rounded-md bg-ink-800 border border-ink-700/40 text-ink-200 hover:text-ink-200 hover:border-ink-500/50 transition-colors text-sm font-mono flex items-center justify-center"
           @click="zoomIn"
-        >+</button>
+        >
+          +
+        </button>
       </div>
     </div>
 
@@ -51,7 +57,14 @@
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          <linearGradient id="curveGrad" gradientUnits="userSpaceOnUse" :x1="gradX1" y1="0" :x2="gradX2" y2="0">
+          <linearGradient
+            id="curveGrad"
+            gradientUnits="userSpaceOnUse"
+            :x1="gradX1"
+            y1="0"
+            :x2="gradX2"
+            y2="0"
+          >
             <stop offset="0%" stop-color="#4ade80" />
             <stop offset="30%" stop-color="#f59e0b" />
             <stop offset="60%" stop-color="#a855f7" />
@@ -122,7 +135,9 @@
             fill="#596180"
             font-size="10"
             font-family="DM Mono, monospace"
-          >{{ tick.label }}</text>
+          >
+            {{ tick.label }}
+          </text>
         </g>
 
         <!-- Event dots -->
@@ -134,7 +149,13 @@
           @mouseleave="hoveredIndex = null"
           @click.stop="handleDotClick(dot)"
         >
-          <circle :cx="dot.cx" :cy="dot.cy" r="14" fill="transparent" class="cursor-pointer" />
+          <circle
+            :cx="dot.cx"
+            :cy="dot.cy"
+            r="14"
+            fill="transparent"
+            class="cursor-pointer"
+          />
           <circle
             v-if="selectedNotation === dot.event.indexNotation"
             :cx="dot.cx"
@@ -162,11 +183,17 @@
         class="absolute pointer-events-none z-20"
         :style="tooltipStyle"
       >
-        <div class="px-3 py-2 bg-ink-800 border border-ink-600/40 rounded-lg shadow-xl whitespace-nowrap text-left animate-fade-in">
-          <p class="text-xs font-semibold text-ink-100 mb-0.5">{{ hoveredDot.event.exampleEvent }}</p>
-          <p class="text-[10px] font-mono text-ink-400">
+        <div
+          class="px-3 py-2 bg-ink-800 border border-ink-600/40 rounded-lg shadow-xl whitespace-nowrap text-left animate-fade-in"
+        >
+          <p class="text-xs font-semibold text-ink-100 mb-0.5">
+            {{ hoveredDot.event.exampleEvent }}
+          </p>
+          <p class="text-[10px] font-mono text-ink-200">
             {{ hoveredDot.event.fraction }}
-            <span class="ml-1.5 text-ink-500">{{ hoveredDot.event.indexNotation }}</span>
+            <span class="ml-1.5 text-ink-500">{{
+              hoveredDot.event.indexNotation
+            }}</span>
           </p>
         </div>
       </div>
@@ -177,9 +204,16 @@
           v-if="showScrollHint"
           class="absolute inset-0 flex items-center justify-center bg-ink-950/60 backdrop-blur-sm rounded-lg pointer-events-none z-30"
         >
-          <div class="px-5 py-3 rounded-xl bg-ink-800/90 border border-ink-600/30 shadow-lg">
+          <div
+            class="px-5 py-3 rounded-xl bg-ink-800/90 border border-ink-600/30 shadow-lg"
+          >
             <p class="text-sm text-ink-200 font-medium">
-              Use <kbd class="px-1.5 py-0.5 mx-0.5 rounded bg-ink-700 text-ink-300 text-xs font-mono border border-ink-600/40">Ctrl</kbd> + Scroll to zoom
+              Use
+              <kbd
+                class="px-1.5 py-0.5 mx-0.5 rounded bg-ink-700 text-ink-300 text-xs font-mono border border-ink-600/40"
+                >Ctrl</kbd
+              >
+              + Scroll to zoom
             </p>
           </div>
         </div>
@@ -227,7 +261,9 @@ const panStartViewMax = ref(0);
 const showScrollHint = ref(false);
 let hintTimer: ReturnType<typeof setTimeout> | null = null;
 
-const isZoomed = computed(() => viewMin.value > 0.1 || viewMax.value < MAX_EXP - 0.1);
+const isZoomed = computed(
+  () => viewMin.value > 0.1 || viewMax.value < MAX_EXP - 0.1,
+);
 
 const gradX1 = computed(() => expToX(0));
 const gradX2 = computed(() => expToX(MAX_EXP));
@@ -271,13 +307,19 @@ function barColor(exp: number): string {
   let r: number, g: number, b: number;
   if (t < 0.14) {
     const s = t / 0.14;
-    r = 74 + (245 - 74) * s; g = 222 + (158 - 222) * s; b = 128 + (11 - 128) * s;
+    r = 74 + (245 - 74) * s;
+    g = 222 + (158 - 222) * s;
+    b = 128 + (11 - 128) * s;
   } else if (t < 0.43) {
     const s = (t - 0.14) / 0.29;
-    r = 245 + (168 - 245) * s; g = 158 + (85 - 158) * s; b = 11 + (247 - 11) * s;
+    r = 245 + (168 - 245) * s;
+    g = 158 + (85 - 158) * s;
+    b = 11 + (247 - 11) * s;
   } else {
     const s = (t - 0.43) / 0.57;
-    r = 168 + (236 - 168) * s; g = 85 + (72 - 85) * s; b = 247 + (153 - 247) * s;
+    r = 168 + (236 - 168) * s;
+    g = 85 + (72 - 85) * s;
+    b = 247 + (153 - 247) * s;
   }
   return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},0.18)`;
 }
@@ -287,7 +329,13 @@ const bars = computed(() => {
   const step = range / BAR_COUNT;
   const barW = (PW / BAR_COUNT) * 0.82;
   const bottom = PAD.t + PH;
-  const result: { x: number; y: number; w: number; h: number; color: string }[] = [];
+  const result: {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    color: string;
+  }[] = [];
 
   for (let i = 0; i < BAR_COUNT; i++) {
     const exp = viewMin.value + (i + 0.5) * step;
@@ -295,7 +343,13 @@ const bars = computed(() => {
     const yTop = expToY(exp);
     const h = bottom - yTop;
     if (h < 0.5) continue;
-    result.push({ x: cx - barW / 2, y: yTop, w: barW, h, color: barColor(exp) });
+    result.push({
+      x: cx - barW / 2,
+      y: yTop,
+      w: barW,
+      h,
+      color: barColor(exp),
+    });
   }
   return result;
 });
@@ -303,7 +357,10 @@ const bars = computed(() => {
 // Axis ticks
 const SUPERSCRIPTS = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
 function toSuperscript(n: number): string {
-  return String(Math.abs(Math.round(n))).split('').map(d => SUPERSCRIPTS[parseInt(d)]).join('');
+  return String(Math.abs(Math.round(n)))
+    .split('')
+    .map((d) => SUPERSCRIPTS[parseInt(d)])
+    .join('');
 }
 
 const axisTicks = computed(() => {
@@ -365,12 +422,14 @@ const allDots = computed(() => {
 });
 
 const visibleDots = computed(() => {
-  return allDots.value.filter(d => d.cx >= PAD.l - 10 && d.cx <= PAD.l + PW + 10);
+  return allDots.value.filter(
+    (d) => d.cx >= PAD.l - 10 && d.cx <= PAD.l + PW + 10,
+  );
 });
 
 const hoveredDot = computed(() => {
   if (hoveredIndex.value === null) return null;
-  return allDots.value.find(d => d.index === hoveredIndex.value) || null;
+  return allDots.value.find((d) => d.index === hoveredIndex.value) || null;
 });
 
 const tooltipStyle = computed(() => {
@@ -391,7 +450,9 @@ function handleWheel(e: WheelEvent) {
   if (!e.ctrlKey && !e.metaKey) {
     showScrollHint.value = true;
     if (hintTimer) clearTimeout(hintTimer);
-    hintTimer = setTimeout(() => { showScrollHint.value = false; }, 1500);
+    hintTimer = setTimeout(() => {
+      showScrollHint.value = false;
+    }, 1500);
     return;
   }
 
@@ -410,8 +471,14 @@ function handleWheel(e: WheelEvent) {
   const range = newMax - newMin;
   if (range < MIN_RANGE || range > MAX_EXP) return;
 
-  if (newMin < 0) { newMax -= newMin; newMin = 0; }
-  if (newMax > MAX_EXP) { newMin -= (newMax - MAX_EXP); newMax = MAX_EXP; }
+  if (newMin < 0) {
+    newMax -= newMin;
+    newMin = 0;
+  }
+  if (newMax > MAX_EXP) {
+    newMin -= newMax - MAX_EXP;
+    newMax = MAX_EXP;
+  }
   viewMin.value = Math.max(0, newMin);
   viewMax.value = Math.min(MAX_EXP, newMax);
 }
@@ -439,8 +506,14 @@ function handleMouseMove(e: MouseEvent) {
 
   let newMin = panStartViewMin.value + dExp;
   let newMax = panStartViewMax.value + dExp;
-  if (newMin < 0) { newMax -= newMin; newMin = 0; }
-  if (newMax > MAX_EXP) { newMin -= (newMax - MAX_EXP); newMax = MAX_EXP; }
+  if (newMin < 0) {
+    newMax -= newMin;
+    newMin = 0;
+  }
+  if (newMax > MAX_EXP) {
+    newMin -= newMax - MAX_EXP;
+    newMax = MAX_EXP;
+  }
   viewMin.value = Math.max(0, newMin);
   viewMax.value = Math.min(MAX_EXP, newMax);
 }
@@ -487,8 +560,14 @@ function handleTouchMove(e: TouchEvent) {
       let newMax = centerExp + (viewMax.value - centerExp) * factor;
       const range = newMax - newMin;
       if (range >= MIN_RANGE && range <= MAX_EXP) {
-        if (newMin < 0) { newMax -= newMin; newMin = 0; }
-        if (newMax > MAX_EXP) { newMin -= (newMax - MAX_EXP); newMax = MAX_EXP; }
+        if (newMin < 0) {
+          newMax -= newMin;
+          newMin = 0;
+        }
+        if (newMax > MAX_EXP) {
+          newMin -= newMax - MAX_EXP;
+          newMax = MAX_EXP;
+        }
         viewMin.value = Math.max(0, newMin);
         viewMax.value = Math.min(MAX_EXP, newMax);
       }
@@ -502,8 +581,14 @@ function handleTouchMove(e: TouchEvent) {
     const dExp = -(dx / rect.width) * range;
     let newMin = panStartViewMin.value + dExp;
     let newMax = panStartViewMax.value + dExp;
-    if (newMin < 0) { newMax -= newMin; newMin = 0; }
-    if (newMax > MAX_EXP) { newMin -= (newMax - MAX_EXP); newMax = MAX_EXP; }
+    if (newMin < 0) {
+      newMax -= newMin;
+      newMin = 0;
+    }
+    if (newMax > MAX_EXP) {
+      newMin -= newMax - MAX_EXP;
+      newMax = MAX_EXP;
+    }
     viewMin.value = Math.max(0, newMin);
     viewMax.value = Math.min(MAX_EXP, newMax);
   }
@@ -542,7 +627,10 @@ function zoomIn() {
   const half = (viewMax.value - viewMin.value) / 2;
   const newHalf = half * 0.6;
   if (newHalf * 2 < MIN_RANGE) return;
-  animateViewport(Math.max(0, center - newHalf), Math.min(MAX_EXP, center + newHalf));
+  animateViewport(
+    Math.max(0, center - newHalf),
+    Math.min(MAX_EXP, center + newHalf),
+  );
 }
 
 function zoomOut() {
@@ -551,8 +639,14 @@ function zoomOut() {
   const newHalf = Math.min(MAX_EXP / 2, half * 1.6);
   let newMin = center - newHalf;
   let newMax = center + newHalf;
-  if (newMin < 0) { newMax -= newMin; newMin = 0; }
-  if (newMax > MAX_EXP) { newMin -= (newMax - MAX_EXP); newMax = MAX_EXP; }
+  if (newMin < 0) {
+    newMax -= newMin;
+    newMin = 0;
+  }
+  if (newMax > MAX_EXP) {
+    newMin -= newMax - MAX_EXP;
+    newMax = MAX_EXP;
+  }
   animateViewport(Math.max(0, newMin), Math.min(MAX_EXP, newMax));
 }
 
@@ -562,7 +656,9 @@ function resetZoom() {
 
 // Lifecycle: attach non-passive wheel listener
 onMounted(() => {
-  containerRef.value?.addEventListener('wheel', handleWheel, { passive: false });
+  containerRef.value?.addEventListener('wheel', handleWheel, {
+    passive: false,
+  });
 });
 
 onUnmounted(() => {
