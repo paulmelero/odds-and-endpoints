@@ -295,8 +295,8 @@ onMounted(() => {
 
 useSeoMeta({
   title: () => {
-    if (!event.value) return `/${n.value}/${m.value} — Odds and End—Point—s`;
-    return `${event.value.exampleEvent} — Odds and End—Point—s`;
+    if (!event.value) return `/${n.value}/${m.value} — woddsup`;
+    return `${event.value.exampleEvent} — woddsup`;
   },
   description: () => event.value?.exampleDescription || '',
 });

@@ -18,15 +18,9 @@
             </span>
           </div>
           <h1
-            class="text-xl sm:text-4xl md:text-6xl font-display font-bold text-ink-50 mb-6 flex flex-col sm:flex-row sm:justify-center"
+            class="text-xl sm:text-4xl md:text-6xl font-display font-bold text-ink-50 mb-6"
           >
-            <span>Odds and&nbsp;</span>
-            <span
-              >End<span class="text-ember-400">&mdash;</span>Point<span
-                class="text-ember-400"
-                >&mdash;</span
-              >s</span
-            >
+            woddsup
           </h1>
           <p
             class="text-lg md:text-xl text-ink-200 mb-12 max-w-2xl mx-auto leading-relaxed"

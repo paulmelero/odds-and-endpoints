@@ -13,6 +13,7 @@
             A REST-friendly notation system for indexing real-world
             probabilities.
           </p>
+          <p class="text-ink-400 text-xs mt-1">Previously known as "Odds and End—Point—s."</p>
         </div>
 
         <div class="card p-6 sm:p-8 mb-10">

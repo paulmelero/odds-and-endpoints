@@ -98,7 +98,7 @@
       <div
         class="border-t border-ink-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-300"
       >
-        <p>&copy; {{ new Date().getFullYear() }} Odds and End—Point—s</p>
+        <p>&copy; {{ new Date().getFullYear() }} woddsup</p>
         <p>Built with curiosity and scientific rigor.</p>
       </div>
     </div>

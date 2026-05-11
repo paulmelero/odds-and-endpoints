@@ -138,8 +138,8 @@ const firstEvent = computed(() => events.value?.[0]);
 useSeoMeta({
   title: () => {
     const evt = firstEvent.value;
-    if (!evt) return `/${n.value}/${m.value} — Odds and End—Point—s`;
-    return `${evt.fraction} — ${evt.exampleEvent} — Odds and End—Point—s`;
+    if (!evt) return `/${n.value}/${m.value} — woddsup`;
+    return `${evt.fraction} — ${evt.exampleEvent} — woddsup`;
   },
   description: () => firstEvent.value?.exampleDescription || '',
 });

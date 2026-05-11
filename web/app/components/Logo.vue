@@ -14,7 +14,7 @@
       class="text-lg font-display font-semibold tracking-tight"
       :class="dark ? 'text-ink-300' : 'text-ink-100'"
     >
-      Odds and <wbr />End—Point—s
+      woddsup
     </span>
   </div>
 </template>
