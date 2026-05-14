@@ -12,8 +12,9 @@ function forwardHeaders(from: Headers, to: H3Event) {
 }
 
 export async function fetchFromApi<T>(event: H3Event, path: string): Promise<T> {
-  if (import.meta.dev) {
-    const response = await $fetch.raw<T>(path, { baseURL: API_DEV_URL });
+  if (import.meta.dev || import.meta.prerender) {
+    const baseURL = process.env.API_BASE_URL || API_DEV_URL;
+    const response = await $fetch.raw<T>(path, { baseURL });
     forwardHeaders(response.headers, event);
     return response._data as T;
   }

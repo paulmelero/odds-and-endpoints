@@ -284,7 +284,7 @@
 import type { OddsInfo, EventSummary } from '@odds-and-endpoints/types';
 import { getCategoryBadgeClass } from '../utils/categoryColors';
 
-defineOgImage('CustomTakumi', {
+defineOgImage('Custom', {
   title: 'woddsup — Scientific notation made REST',
   description: 'Get a random fact from the API',
 });
