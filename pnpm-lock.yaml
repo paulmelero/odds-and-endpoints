@@ -49,7 +49,7 @@ importers:
         version: 4.0.3(magicast@0.5.2)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))
       '@nuxtjs/seo':
         specifier: 5.1.3
-        version: 5.1.3(aauo5o2ysixy564neyrng7m7uy)
+        version: 5.1.3(xn2prwjr3efouevm4mr2ewzq4y)
       '@nuxtjs/sitemap':
         specifier: '>=7.0.0'
         version: 8.0.15(@nuxt/schema@4.4.4)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
@@ -57,6 +57,9 @@ importers:
         specifier: ^6.14.0
         version: 6.14.0(magicast@0.5.2)
       '@resvg/resvg-js':
+        specifier: ^2.6.2
+        version: 2.6.2
+      '@resvg/resvg-wasm':
         specifier: ^2.6.2
         version: 2.6.2
       '@tailwindcss/forms':
@@ -2640,6 +2643,10 @@ packages:
 
   '@resvg/resvg-js@2.6.2':
     resolution: {integrity: sha512-xBaJish5OeGmniDj9cW5PRa/PtmuVU3ziqrbr5xJj901ZDN4TosrVaNZpEiLZAxdfnhAe7uQ7QFWfjPe9d9K2Q==}
+    engines: {node: '>= 10'}
+
+  '@resvg/resvg-wasm@2.6.2':
+    resolution: {integrity: sha512-FqALmHI8D4o6lk/LRWDnhw95z5eO+eAa6ORjVg09YRR7BkcM6oPHU9uyC0gtQG5vpFLvgpeU4+zEAz2H8APHNw==}
     engines: {node: '>= 10'}
 
   '@rolldown/pluginutils@1.0.0':
@@ -9873,14 +9880,14 @@ snapshots:
       - vite
       - vue
 
-  '@nuxtjs/seo@5.1.3(aauo5o2ysixy564neyrng7m7uy)':
+  '@nuxtjs/seo@5.1.3(xn2prwjr3efouevm4mr2ewzq4y)':
     dependencies:
       '@nuxt/kit': 4.4.4(magicast@0.5.2)
       '@nuxtjs/robots': 6.0.8(@nuxt/schema@4.4.4)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
       '@nuxtjs/sitemap': 8.0.15(@nuxt/schema@4.4.4)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
       nuxt: 4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4)
       nuxt-link-checker: 5.0.10(@netlify/blobs@9.1.2)(@nuxt/schema@4.4.4)(db0@0.3.4(drizzle-orm@0.45.2))(ioredis@5.10.1)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
-      nuxt-og-image: 6.5.0(ndmtpa4mkotsbbpzg7df3uywfm)
+      nuxt-og-image: 6.5.0(h56f5h5vjzwanf2vwbvq4bzhpi)
       nuxt-schema-org: 6.0.4(3qx2f2kwtdlqlvrwig4ywhmix4)
       nuxt-seo-utils: 8.1.11(@nuxt/schema@4.4.4)(esbuild@0.27.7)(lightningcss@1.32.0)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
       nuxt-site-config: 4.0.8(@nuxt/schema@4.4.4)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.6)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.2))(drizzle-orm@0.45.2)(eslint@9.39.4(jiti@2.7.0))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.3))(rollup@4.60.3)(terser@5.43.1)(typescript@5.8.3)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(yaml@2.8.4))(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))(vue@3.5.34(typescript@5.8.3))
@@ -10469,6 +10476,8 @@ snapshots:
       '@resvg/resvg-js-win32-arm64-msvc': 2.6.2
       '@resvg/resvg-js-win32-ia32-msvc': 2.6.2
       '@resvg/resvg-js-win32-x64-msvc': 2.6.2
+
+  '@resvg/resvg-wasm@2.6.2': {}
 
   '@rolldown/pluginutils@1.0.0': {}
 
@@ -14058,7 +14067,7 @@ snapshots:
       - vue
       - zod
 
-  nuxt-og-image@6.5.0(ndmtpa4mkotsbbpzg7df3uywfm):
+  nuxt-og-image@6.5.0(h56f5h5vjzwanf2vwbvq4bzhpi):
     dependencies:
       '@clack/prompts': 1.3.0
       '@nuxt/kit': 4.4.4(magicast@0.5.2)
@@ -14094,6 +14103,7 @@ snapshots:
       unstorage: 1.17.5(@netlify/blobs@9.1.2)(db0@0.3.4(drizzle-orm@0.45.2))(ioredis@5.10.1)
     optionalDependencies:
       '@resvg/resvg-js': 2.6.2
+      '@resvg/resvg-wasm': 2.6.2
       '@takumi-rs/core': 1.1.2
       '@takumi-rs/wasm': 1.1.2
       fontless: 0.2.1(@netlify/blobs@9.1.2)(db0@0.3.4(drizzle-orm@0.45.2))(ioredis@5.10.1)(vite@7.3.3(@types/node@24.0.10)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.43.1)(yaml@2.8.4))
