@@ -284,6 +284,11 @@
 import type { OddsInfo, EventSummary } from '@odds-and-endpoints/types';
 import { getCategoryBadgeClass } from '../utils/categoryColors';
 
+defineOgImage('CustomSatori', {
+  title: 'woddsup — Scientific notation made REST',
+  description: 'Get a random fact from the API',
+});
+
 const isRolling = ref(false);
 const rollError = ref<string | null>(null);
 

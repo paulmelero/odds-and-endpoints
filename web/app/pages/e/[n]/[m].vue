@@ -143,4 +143,9 @@ useSeoMeta({
   },
   description: () => firstEvent.value?.exampleDescription || '',
 });
+
+defineOgImage('Custom', {
+  title: `Events at odds /${n.value}/${m.value}`,
+  description: ``,
+});
 </script>

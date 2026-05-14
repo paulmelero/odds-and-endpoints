@@ -83,7 +83,7 @@ export const SOURCE = Object.freeze({
         source: 'https://en.wikipedia.org/wiki/Boy_or_girl_paradox',
         exampleEvent: 'Third Child Same Sex as First Two',
         exampleDescription:
-          'If the first two children are already the same sex, the probability that the third child is also the same sex is still 50%, because each birth is an independent event. A common confusion is with the unconditional probability: before any children are born, the chance of all three being the same sex is 1/4 (2 favorable outcomes — BBB and GGG — out of 8 total). Some might even think 1/8, but that is the probability of one specific sequence (e.g., BBB alone). However, once the first two children are already the same sex, the only question left is a single coin flip for the third — so the answer is simply 1/2.',
+          'If the first two children are already the same sex, the probability that the third child is also the same sex is still 50%, because each birth is an independent event. A common confusion is with the unconditional probability: before any children are born, the chance of all three being the same sex is 1/4 (2 favorable outcomes — BBB and GGG — out of 8 total). Some might even think 1/8, but that is the probability of one specific sequence (e.g., all girls). However, once the first two children are already the same sex, the only question left is a single coin flip for the third — so the answer is simply 1/2.',
         category: 'human-biology',
       },
     ],

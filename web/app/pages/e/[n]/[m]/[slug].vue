@@ -300,6 +300,11 @@ useSeoMeta({
   },
   description: () => event.value?.exampleDescription || '',
 });
+
+defineOgImage('Custom', {
+  title: event.value?.exampleEvent || `/${n.value}/${m.value}`,
+  description: event.value?.exampleDescription || '',
+});
 </script>
 
 <style scoped>

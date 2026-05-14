@@ -25,5 +25,17 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/test-utils',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/seo',
+    'nuxt-ai-ready',
   ],
+
+  site: {
+    url: 'https://woddsup.com',
+    name: 'woddsup',
+  },
+
+  ogImage: {
+    zeroRuntime: true,
+    buildCache: true,
+  },
 });
