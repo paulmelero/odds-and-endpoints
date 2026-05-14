@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
     },
+    alias: {
+      'better-sqlite3': 'unenv/mock/empty',
+    },
   },
 
   modules: [

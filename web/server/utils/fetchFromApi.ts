@@ -1,5 +1,4 @@
 import type { H3Event } from 'h3';
-import { env } from 'cloudflare:workers';
 
 const API_DEV_URL = 'http://localhost:3001';
 
@@ -19,7 +18,8 @@ export async function fetchFromApi<T>(event: H3Event, path: string): Promise<T> 
     return response._data as T;
   }
 
-  const response = await env.API.fetch(`https://api${path}`);
+  const { env } = await import('cloudflare:workers');
+  const response = await (env as any).API.fetch(`https://api${path}`);
   forwardHeaders(response.headers, event);
   return response.json() as T;
 }
