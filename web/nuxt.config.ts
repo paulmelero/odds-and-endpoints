@@ -11,8 +11,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
-      routes: ['/'],
-      crawlLinks: true,
     },
     preset: 'cloudflare_module',
     cloudflare: {
@@ -49,7 +47,6 @@ export default defineNuxtConfig({
     defaults: {
       renderer: 'takumi',
     },
-    zeroRuntime: true,
   },
 
   sitemap: {
