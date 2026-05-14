@@ -13,9 +13,17 @@ export default defineEventHandler((event) => {
     slug: string;
   }[] = [];
 
-  for (const n in SOURCE) {
-    const nKey = parseInt(n) as keyof typeof SOURCE;
-    for (const m in SOURCE[nKey]) {
+  const sortedN = Object.keys(SOURCE)
+    .map(Number)
+    .sort((a, b) => a - b);
+
+  for (const n of sortedN) {
+    const nKey = n as keyof typeof SOURCE;
+    const sortedM = Object.keys(SOURCE[nKey])
+      .map(Number)
+      .sort((a, b) => a - b);
+
+    for (const m of sortedM) {
       const entry =
         SOURCE[nKey][m as unknown as keyof (typeof SOURCE)[typeof nKey]];
       const entries = Array.isArray(entry) ? entry : [entry];
