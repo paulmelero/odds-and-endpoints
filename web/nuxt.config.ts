@@ -22,6 +22,12 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    optimizeDeps: {
+      include: ['@number-flow/vue'],
+    },
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
