@@ -3,9 +3,13 @@ import { env } from 'cloudflare:workers';
 
 const API_DEV_URL = 'http://localhost:3001';
 
+const FORWARDED_HEADERS = ['Link', 'Cache-Control', 'CDN-Cache-Control'];
+
 function forwardHeaders(from: Headers, to: H3Event) {
-  const link = from.get('Link');
-  if (link) setResponseHeader(to, 'Link', link);
+  for (const name of FORWARDED_HEADERS) {
+    const value = from.get(name);
+    if (value) setResponseHeader(to, name, value);
+  }
 }
 
 export async function fetchFromApi<T>(event: H3Event, path: string): Promise<T> {
