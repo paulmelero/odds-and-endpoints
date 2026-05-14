@@ -63,17 +63,30 @@ export const SOURCE = Object.freeze({
         'About 44% of the global population has blood type O, making it the most common blood type worldwide.',
       category: 'human-biology',
     },
-    5: {
-      slug: 'fair-coin-toss',
-      value: 0.5,
-      fraction: '1/2',
-      indexNotation: '/1/5',
-      source: 'https://en.wikipedia.org/wiki/Fair_coin',
-      exampleEvent: 'Fair Coin Toss',
-      exampleDescription:
-        "A fair coin has a 50% chance of landing on each side, meaning it's 1/2 likely to land on heads and 1/2 likely to land on tails.",
-      category: 'games',
-    },
+    5: [
+      {
+        slug: 'fair-coin-toss',
+        value: 0.5,
+        fraction: '1/2',
+        indexNotation: '/1/5',
+        source: 'https://en.wikipedia.org/wiki/Fair_coin',
+        exampleEvent: 'Fair Coin Toss',
+        exampleDescription:
+          "A fair coin has a 50% chance of landing on each side, meaning it's 1/2 likely to land on heads and 1/2 likely to land on tails.",
+        category: 'games',
+      },
+      {
+        slug: 'third-child-same-sex',
+        value: 0.5,
+        fraction: '1/2',
+        indexNotation: '/1/5',
+        source: 'https://en.wikipedia.org/wiki/Boy_or_girl_paradox',
+        exampleEvent: 'Third Child Same Sex as First Two',
+        exampleDescription:
+          'If the first two children are already the same sex, the probability that the third child is also the same sex is still 50%, because each birth is an independent event. A common confusion is with the unconditional probability: before any children are born, the chance of all three being the same sex is 1/4 (2 favorable outcomes — BBB and GGG — out of 8 total). Some might even think 1/8, but that is the probability of one specific sequence (e.g., BBB alone). However, once the first two children are already the same sex, the only question left is a single coin flip for the third — so the answer is simply 1/2.',
+        category: 'human-biology',
+      },
+    ],
   },
   2: {
     1: [
