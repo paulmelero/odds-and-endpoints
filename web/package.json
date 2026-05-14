@@ -11,6 +11,10 @@
     "preview:wrangler": "pnpm build && pnpm dlx wrangler dev -c wrangler.jsonc -c ../api/wrangler.toml",
     "postinstall": "nuxt prepare"
   },
+  "onlyBuiltDependencies": [
+    "better-sqlite3",
+    "sharp"
+  ],
   "dependencies": {
     "@number-flow/vue": "^0.4.8",
     "@nuxt/eslint": "^1.15.2",

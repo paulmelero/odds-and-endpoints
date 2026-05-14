@@ -38,4 +38,8 @@ export default defineNuxtConfig({
     zeroRuntime: true,
     buildCache: true,
   },
+
+  sitemap: {
+    zeroRuntime: true,
+  },
 });
